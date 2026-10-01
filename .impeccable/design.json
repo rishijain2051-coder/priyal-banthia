@@ -1,0 +1,767 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-01T00:00:00Z",
+  "title": "Design System: Priyal Banthia, Social Media Manager",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Rose Paper",
+        "canonical": "#F6F1F2",
+        "tonalRamp": [
+          "#2A2422",
+          "#463D3A",
+          "#635754",
+          "#8A7C78",
+          "#B3A5A1",
+          "#D6C9C5",
+          "#EDE5E7",
+          "#FBF8F7"
+        ]
+      },
+      "paper-card": {
+        "role": "neutral",
+        "displayName": "Card Paper",
+        "canonical": "#FFFBFC",
+        "tonalRamp": [
+          "#2B2524",
+          "#483F3D",
+          "#665A57",
+          "#8E807C",
+          "#B7A9A5",
+          "#DACDC9",
+          "#F2EBE9",
+          "#FFFBFC"
+        ]
+      },
+      "paper-sunk": {
+        "role": "neutral",
+        "displayName": "Sunk Paper",
+        "canonical": "#EDE5E7",
+        "tonalRamp": [
+          "#272120",
+          "#423936",
+          "#5E5350",
+          "#857773",
+          "#AE9F9B",
+          "#D1C3BF",
+          "#EDE5E7",
+          "#F9F5F4"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#221B1D",
+        "tonalRamp": [
+          "#221B1D",
+          "#3B3331",
+          "#564B49",
+          "#7B6E6B",
+          "#A39492",
+          "#C7B9B6",
+          "#E4DAD8",
+          "#F6F1F0"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#6B5D60",
+        "tonalRamp": [
+          "#231E1D",
+          "#3C3533",
+          "#554B49",
+          "#6B5D60",
+          "#93857F",
+          "#B9ABA6",
+          "#DCD0CC",
+          "#F3EDEB"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#DED2D6",
+        "tonalRamp": [
+          "#251F1E",
+          "#3F3734",
+          "#5A4F4C",
+          "#7F726E",
+          "#A89A96",
+          "#C6B8B4",
+          "#DED2D6",
+          "#F3EDEB"
+        ]
+      },
+      "rule-soft": {
+        "role": "neutral",
+        "displayName": "Soft Rule",
+        "canonical": "#E8DEE0",
+        "tonalRamp": [
+          "#262120",
+          "#403836",
+          "#5B504D",
+          "#80736F",
+          "#A99B97",
+          "#CCBFBB",
+          "#E8DEE0",
+          "#F7F3F2"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Wine Accent",
+        "canonical": "#9E3B54",
+        "tonalRamp": [
+          "#2B0D16",
+          "#471726",
+          "#642135",
+          "#7E2C42",
+          "#9E3B54",
+          "#C06078",
+          "#DC98A8",
+          "#F3D5DC"
+        ]
+      },
+      "accent-sunk": {
+        "role": "primary",
+        "displayName": "Wine Deep",
+        "canonical": "#7E2C42",
+        "tonalRamp": [
+          "#240A12",
+          "#3C1220",
+          "#561C2E",
+          "#7E2C42",
+          "#A04A60",
+          "#C27C8E",
+          "#DEAEBB",
+          "#F4DCE2"
+        ]
+      },
+      "field-default": {
+        "role": "content-field",
+        "displayName": "Field Fallback",
+        "canonical": "#241F1E",
+        "paletteExempt": true
+      },
+      "field-fg": {
+        "role": "content-field",
+        "displayName": "Field Foreground (dark fields)",
+        "canonical": "#FFFBFC",
+        "paletteExempt": true
+      },
+      "field-fg-light": {
+        "role": "content-field",
+        "displayName": "Field Foreground (light fields)",
+        "canonical": "#2A1B1E",
+        "paletteExempt": true
+      },
+      "field-sotrue": {
+        "role": "content-field",
+        "displayName": "Sotrue Black",
+        "canonical": "#111111",
+        "paletteExempt": true
+      },
+      "field-srivari": {
+        "role": "content-field",
+        "displayName": "Srivari Green",
+        "canonical": "#0E3D27",
+        "paletteExempt": true
+      },
+      "field-mcl": {
+        "role": "content-field",
+        "displayName": "Montecarlo Slate",
+        "canonical": "#313B41",
+        "paletteExempt": true
+      },
+      "field-alibaug": {
+        "role": "content-field",
+        "displayName": "Alibaug Deep Blue",
+        "canonical": "#123E63",
+        "paletteExempt": true
+      },
+      "field-grandmercure": {
+        "role": "content-field",
+        "displayName": "Grand Mercure Sage",
+        "canonical": "#CBD8CE",
+        "paletteExempt": true,
+        "note": "Was #0B403A, a near-twin of Srivari green; a hotel, not a jewellery label."
+      },
+      "field-slaystay": {
+        "role": "content-field",
+        "displayName": "SlayStay Indigo",
+        "canonical": "#2A1C6B",
+        "paletteExempt": true
+      },
+      "field-numaani": {
+        "role": "content-field",
+        "displayName": "Numaani Rust",
+        "canonical": "#7C2E13",
+        "paletteExempt": true
+      },
+      "field-diamour": {
+        "role": "content-field",
+        "displayName": "Diamour Plum",
+        "canonical": "#4A1B3D",
+        "paletteExempt": true
+      },
+      "field-walkthetalk": {
+        "role": "content-field",
+        "displayName": "Walk The Talk Blush",
+        "canonical": "#EFD6CE",
+        "paletteExempt": true
+      },
+      "field-crystalicious": {
+        "role": "content-field",
+        "displayName": "Crystalicious Lilac",
+        "canonical": "#DED3EE",
+        "paletteExempt": true
+      },
+      "field-indianchai": {
+        "role": "content-field",
+        "displayName": "Indian Chai Amber",
+        "canonical": "#E4A64B",
+        "paletteExempt": true
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero headline only. Its measure is the grid column, with no character cap."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "headline-closing": {
+        "displayName": "Closing Headline",
+        "purpose": "The contact section title only; one step larger because it is the final ask."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The employer name on each timeline row, the line both audiences scan for."
+      },
+      "list-title": {
+        "displayName": "List Title",
+        "purpose": "Calendar entry titles in the services section. Previously at body size, which made the section read as grey paragraphs; the scale step is the fix."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Account names in a single-width mosaic cell. Display face at body size."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Follower counts inside account tiles; tabular."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running prose, capped at 64ch with tighter local ch caps."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Job titles, descriptions, nav links, button labels."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase category labels inside tiles and the status chip. The only uppercase type; never a kicker above a heading."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "The account handle line with its outbound arrow."
+      },
+      "subtitle-wide": {
+        "displayName": "Subtitle Wide",
+        "purpose": "The account name in a double-width mosaic cell only."
+      },
+      "year": {
+        "displayName": "Year",
+        "purpose": "The timeline's scan column below 52rem, display face and tabular."
+      },
+      "boot-wordmark": {
+        "displayName": "Boot Wordmark",
+        "purpose": "The loader's name, the only type on that surface. It animates its own tracking from .04em to -.045em as it emerges."
+      },
+      "micro": {
+        "displayName": "Micro",
+        "purpose": "Scale band captions and small secondary text."
+      },
+      "footnote": {
+        "displayName": "Footnote",
+        "purpose": "The footer line."
+      },
+      "year-sticky": {
+        "displayName": "Year Sticky",
+        "purpose": "The same year from 52rem up, where it becomes the row's sticky label in a 9.5rem column. Sized so the widest label, the 2025-26 range, still fits; larger, it overran into the employer names."
+      },
+      "day-label": {
+        "displayName": "Day Label",
+        "purpose": "The Mon-Sun header over the services calendar. Uppercase at .08em, wider than the tile label, because seven three-letter words need the extra separation to read as a header row."
+      }
+    },
+    "shadows": [
+      {
+        "name": "tile-hover",
+        "value": "0 3px 6px rgba(34,27,29,.08), 0 20px 40px -18px rgba(34,27,29,.45)",
+        "purpose": "Account tile on hover, paired with a 3px lift."
+      },
+      {
+        "name": "tile-hover-light",
+        "value": "0 3px 6px rgba(34,27,29,.08), 0 20px 40px -18px rgba(34,27,29,.35)",
+        "purpose": "Same shape at lower alpha for the three light fields, so the cast does not over-darken a pale tile."
+      },
+      {
+        "name": "accent-glow",
+        "value": "0 6px 18px -6px rgba(158,59,84,.45)",
+        "purpose": "Under the primary button on hover only; tinted with the accent, not ink."
+      },
+      {
+        "name": "proof-thumb",
+        "value": "0 2px 10px rgba(0,0,0,.4)",
+        "purpose": "The small before/after image floating over a tile, and the only at-rest shadow left in the build. The only pure-black shadow, because it sits on a saturated field."
+      },
+      {
+        "name": "marker-halo",
+        "value": "0 0 0 4px var(--paper)",
+        "purpose": "Knockout ring around each timeline marker so the 1px spine reads as passing behind it."
+      },
+      {
+        "name": "field-lift-dark",
+        "value": "linear-gradient(155deg, rgba(255,255,255,.14), rgba(255,255,255,0) 58%)",
+        "purpose": "Gradient on a z-index:-1 pseudo-element so a dark field reads as material, not swatch."
+      },
+      {
+        "name": "field-lift-light",
+        "value": "linear-gradient(155deg, rgba(0,0,0,.055), rgba(0,0,0,0) 58%)",
+        "purpose": "The same treatment inverted for the four light fields, same 155deg. Two states of one surface treatment: a white gloss on a near-paper field is invisible, so the lift darkens instead."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "The single easing curve for every transition and animation in the build."
+      },
+      {
+        "name": "feedback",
+        "value": "0.18s",
+        "purpose": "Button transform, background and shadow on hover/active."
+      },
+      {
+        "name": "tile-feedback",
+        "value": "0.24s",
+        "purpose": "Account tile lift and shadow on hover; 0.26s for the proof thumbnail's width."
+      },
+      {
+        "name": "reveal",
+        "value": "0.66s",
+        "purpose": "The mosaic's one authored in-content moment, once on first view."
+      },
+      {
+        "name": "reveal-stagger",
+        "value": "46ms",
+        "purpose": "Per-tile delay across the eleven tiles, set as --i from the script."
+      },
+      {
+        "name": "reveal-release",
+        "value": "1500ms",
+        "purpose": "Delay after which the reveal class is dropped so it can never replay."
+      },
+      {
+        "name": "reveal-failsafe",
+        "value": "2500ms",
+        "purpose": "Unconditional release timer; the mosaic must never be able to sit at opacity 0."
+      },
+      {
+        "name": "hero-cycle",
+        "value": "30s linear infinite",
+        "purpose": "Each header grid cell cycles three account fields; animation-delay calc(var(--a) * -3.1s) staggers the nine cells out of step. animation:none under reduced motion."
+      },
+      {
+        "name": "loader-spread",
+        "value": "0.86s",
+        "purpose": "The four platform marks scale from .62 and unrotate as they part two up and two down, staggered .07s by index."
+      },
+      {
+        "name": "loader-emerge",
+        "value": "0.62s at 0.78s",
+        "purpose": "The wordmark unfolds from the centre line via clip-path inset while its tracking tightens."
+      },
+      {
+        "name": "loader-split",
+        "value": "0.82s at 1.72s",
+        "purpose": "The two clipped halves translate out along the same centre line. Two literal keyframe sets, never one parameterised by a custom property."
+      },
+      {
+        "name": "loader-backstop",
+        "value": "2600ms",
+        "purpose": "Script node removal only. The loader clears itself in CSS; this is never the mechanism."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav-collapse",
+        "value": "32rem"
+      },
+      {
+        "name": "timeline-flat",
+        "value": "32rem"
+      },
+      {
+        "name": "services-2col",
+        "value": "38rem"
+      },
+      {
+        "name": "mosaic-4col",
+        "value": "40rem"
+      },
+      {
+        "name": "band-4col",
+        "value": "46rem"
+      },
+      {
+        "name": "hero-2col",
+        "value": "52rem"
+      },
+      {
+        "name": "services-3col",
+        "value": "64rem"
+      }
+    ],
+    "measures": [
+      {
+        "name": "feed",
+        "value": "44rem",
+        "purpose": "The reading column; applied to the children of a section, never by centring."
+      },
+      {
+        "name": "wide",
+        "value": "78rem",
+        "purpose": "The one box every section, the masthead and the footer share."
+      },
+      {
+        "name": "secondary",
+        "value": "60rem",
+        "purpose": "The one own-cap exception width, shared by the services calendar and the roles list (34ch entry descriptions, 50ch timeline detail). Replaces an earlier pair of separate widths that read as accidental."
+      }
+    ],
+    "contentTokenFamily": {
+      "name": "Account fields",
+      "members": [
+        "field-default",
+        "field-fg",
+        "field-fg-light",
+        "field-sotrue",
+        "field-srivari",
+        "field-mcl",
+        "field-alibaug",
+        "field-grandmercure",
+        "field-slaystay",
+        "field-numaani",
+        "field-diamour",
+        "field-walkthetalk",
+        "field-crystalicious",
+        "field-indianchai"
+      ],
+      "paletteExempt": true,
+      "why": "Each field belongs to one real brand, so the set is content, not theme. Secondary text on a field is computed from the field at paint time with color-mix(in oklab, var(--fg) N%, var(--field)) - 11 fields x 2 roles = 22 values that no enumerated palette can contain. Examples: rgb(203,200,200) on Sotrue's category label, rgb(202,209,205) on Srivari's, rgb(81,64,65) on light Walk The Talk, rgb(79,55,39) on light Indian Chai. A colour audit reports these as drift; they are not drift, and they are never pinned to literals or flattened to grey. Declared once on :root because duplicating them let a consumer go stale. Any surface that cycles them takes its own first field as its static base, never a shared one, so the set still reads as a set with animation off.",
+      "lightModifier": {
+        "fields": [
+          "field-walkthetalk",
+          "field-crystalicious",
+          "field-indianchai",
+          "field-grandmercure"
+        ],
+        "foreground": "#2A1B1E",
+        "mixPercents": {
+          "cat": "80%",
+          "meta": "76%"
+        }
+      },
+      "darkMixPercents": {
+        "cat": "78%",
+        "meta": "74%"
+      },
+      "declaredAs": ":root custom properties --f-sotrue .. --f-grandmercure",
+      "consumedBy": [
+        "mosaic tiles (.f-* classes)",
+        "header grid cells (--c1/--c2/--c3)",
+        "loader"
+      ]
+    },
+    "brandMarks": {
+      "paletteExempt": true,
+      "why": "Third-party platform marks in the loader, not palette. Instagram, Facebook and Meta are Simple Icons paths (CC0); LinkedIn is our own sprite mark, because Simple Icons dropped LinkedIn over trademark.",
+      "values": {
+        "instagram": "#E4405F",
+        "facebook": "#0866FF",
+        "linkedin": "#0A66C2",
+        "meta": "#0467DF"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The real ask, and the accent's one visible home on the page. Accent fill at rest with a #FFFBFC label (6.38:1), deepening to accent-sunk on hover.",
+      "html": "<a class=\"ds-btn\" href=\"#contact\"><svg aria-hidden=\"true\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2.6\" y=\"4.4\" width=\"14.8\" height=\"11.2\" rx=\"2\"/><path d=\"m3.2 5.6 6.8 5 6.8-5\"/></svg>Work with me</a>",
+      "css": ".ds-btn { display:inline-flex; align-items:center; gap:.5rem; padding:.72rem 1.15rem; border:1px solid var(--accent,#9E3B54); border-radius:10px; background:var(--accent,#9E3B54); color:var(--paper-card,#FFFBFC); font:500 .9375rem/1 \"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; text-decoration:none; white-space:nowrap; transition:transform .18s cubic-bezier(.16,1,.3,1), background .18s cubic-bezier(.16,1,.3,1), box-shadow .18s cubic-bezier(.16,1,.3,1); } .ds-btn svg { width:16px; height:16px; flex:none; } .ds-btn:hover { background:var(--accent-sunk,#7E2C42); border-color:var(--accent-sunk,#7E2C42); box-shadow:0 6px 18px -6px rgba(158,59,84,.45); } .ds-btn:focus-visible { outline:2px solid var(--accent,#9E3B54); outline-offset:3px; border-radius:2px; } .ds-btn:active { transform:translateY(1px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Always the second action in a pair. Hairline border, no shadow ever.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#work\">See the accounts</a>",
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; gap:.5rem; padding:.72rem 1.15rem; border:1px solid var(--rule,#DED2D6); border-radius:10px; background:transparent; color:var(--ink,#221B1D); font:500 .9375rem/1 \"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; text-decoration:none; white-space:nowrap; transition:transform .18s cubic-bezier(.16,1,.3,1), background .18s cubic-bezier(.16,1,.3,1), border-color .18s cubic-bezier(.16,1,.3,1); } .ds-btn-ghost:hover { background:var(--paper-card,#FFFBFC); border-color:var(--ink,#221B1D); box-shadow:none; } .ds-btn-ghost:focus-visible { outline:2px solid var(--accent,#9E3B54); outline-offset:3px; } .ds-btn-ghost:active { transform:translateY(1px); }"
+    },
+    {
+      "name": "Header Grid",
+      "kind": "custom",
+      "refersTo": "hero-cell",
+      "description": "The page opens on the thing she makes: a 3x3 of account fields with her cut out of her own photograph standing in front of it, breaking the frame. Each cell cycles three of the eleven fields out of step, and each cell's own first field is its base so the grid still reads as a range with animation off.",
+      "html": "<div class=\"ds-portrait\"><div class=\"ds-hero-grid\" aria-hidden=\"true\"><i style=\"--a:0;--c1:#111111;--c2:#7C2E13;--c3:#DED3EE\"></i><i style=\"--a:1;--c1:#0E3D27;--c2:#E4A64B;--c3:#4A1B3D\"></i><i style=\"--a:2;--c1:#313B41;--c2:#EFD6CE;--c3:#2A1C6B\"></i><i style=\"--a:3;--c1:#123E63;--c2:#CBD8CE;--c3:#111111\"></i><i style=\"--a:4;--c1:#E4A64B;--c2:#4A1B3D;--c3:#0E3D27\"></i><i style=\"--a:5;--c1:#DED3EE;--c2:#313B41;--c3:#7C2E13\"></i><i style=\"--a:6;--c1:#EFD6CE;--c2:#2A1C6B;--c3:#123E63\"></i><i style=\"--a:7;--c1:#4A1B3D;--c2:#111111;--c3:#CBD8CE\"></i><i style=\"--a:8;--c1:#CBD8CE;--c2:#0E3D27;--c3:#E4A64B\"></i></div><img class=\"ds-hero-cut\" src=\"assets/priyal-cutout.png\" width=\"330\" height=\"274\" alt=\"Priyal Banthia.\"></div>",
+      "css": ".ds-portrait { position:relative; width:min(13rem,62vw); } @media (min-width:52rem) { .ds-portrait { width:100%; max-width:21rem; } } .ds-hero-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; aspect-ratio:1/1; } .ds-hero-grid i { border-radius:6px; background:var(--c1); animation:ds-hero-cell 30s linear infinite; animation-delay:calc(var(--a) * -3.1s); } @keyframes ds-hero-cell { 0%,27% { background-color:var(--c1) } 33%,60% { background-color:var(--c2) } 66%,94% { background-color:var(--c3) } 100% { background-color:var(--c1) } } .ds-hero-cut { position:absolute; z-index:1; pointer-events:none; left:-9%; width:118%; max-width:none; bottom:-5%; height:auto; display:block; } @media (prefers-reduced-motion: reduce) { .ds-hero-grid i { animation:none } }"
+    },
+    {
+      "name": "Account Tile",
+      "kind": "custom",
+      "refersTo": "account-tile",
+      "description": "The signature component. A coloured link wearing one brand's own colour, content bottom-aligned, secondary text derived from its own field.",
+      "html": "<a class=\"ds-acct\" style=\"--field:#0E3D27\" href=\"#\"><span class=\"ds-acct-cat\">Jewellery</span><span class=\"ds-acct-name\">Srivari Fashion Jewellery</span><span class=\"ds-acct-meta\">Feed rebuilt on one template <svg aria-hidden=\"true\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5.5 14.5 14.5 5.5M7 5.5h7.5V13\"/></svg></span></a>",
+      "css": ".ds-acct { --field:#241F1E; --fg:#FFFBFC; position:relative; isolation:isolate; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; gap:.3rem; min-height:10.5rem; padding:1.1rem; border-radius:10px; text-decoration:none; background:var(--field); color:var(--fg); font-family:\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; transition:transform .24s cubic-bezier(.16,1,.3,1), box-shadow .24s cubic-bezier(.16,1,.3,1); } .ds-acct::after { content:\"\"; position:absolute; inset:0; z-index:-1; border-radius:inherit; background:linear-gradient(155deg, rgba(255,255,255,.14), rgba(255,255,255,0) 58%); } .ds-acct-cat { font-size:.6875rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,251,252,.78); color:color-mix(in oklab, var(--fg) 78%, var(--field)); } .ds-acct-name { font-family:\"Bricolage Grotesque\", ui-sans-serif, system-ui, sans-serif; font-weight:600; font-size:1.0625rem; line-height:1.15; letter-spacing:-.025em; } .ds-acct-meta { display:flex; align-items:center; gap:.35rem; margin-top:.15rem; font-size:.75rem; font-variant-numeric:tabular-nums; color:rgba(255,251,252,.74); color:color-mix(in oklab, var(--fg) 74%, var(--field)); } .ds-acct-meta svg { width:11px; height:11px; flex:none; transition:transform .2s cubic-bezier(.16,1,.3,1); } .ds-acct:hover { transform:translateY(-3px); box-shadow:0 3px 6px rgba(34,27,29,.08), 0 20px 40px -18px rgba(34,27,29,.45); } .ds-acct:hover .ds-acct-meta svg { transform:translate(1px,-1px); } .ds-acct:focus-visible { outline:2px solid var(--accent,#9E3B54); outline-offset:3px; } .ds-acct:active { transform:translateY(0); }"
+    },
+    {
+      "name": "Account Tile, Light Field",
+      "kind": "custom",
+      "refersTo": "account-tile-light",
+      "description": "The modifier for the four fields lighter than the page: dark foreground, inverted gradient lift, softer hover cast.",
+      "html": "<a class=\"ds-acct ds-acct-light\" style=\"--field:#E4A64B\" href=\"#\"><span class=\"ds-acct-cat\">Food and drink</span><span class=\"ds-acct-name\">The Indian Chai</span><span class=\"ds-acct-meta\">@theindianchai <svg aria-hidden=\"true\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5.5 14.5 14.5 5.5M7 5.5h7.5V13\"/></svg></span></a>",
+      "css": ".ds-acct-light { --fg:#2A1B1E; } .ds-acct-light::after { background:linear-gradient(155deg, rgba(0,0,0,.055), rgba(0,0,0,0) 58%); } .ds-acct-light .ds-acct-cat { color:rgba(42,27,30,.80); color:color-mix(in oklab, var(--fg) 80%, var(--field)); } .ds-acct-light .ds-acct-meta { color:rgba(42,27,30,.76); color:color-mix(in oklab, var(--fg) 76%, var(--field)); } .ds-acct-light:hover { box-shadow:0 3px 6px rgba(34,27,29,.08), 0 20px 40px -18px rgba(34,27,29,.35); }"
+    },
+    {
+      "name": "Timeline Row",
+      "kind": "custom",
+      "refersTo": "timeline-marker",
+      "description": "Employer-leading row on a marker spine under a sticky per-row year. Pure CSS, so the year cannot desynchronise from the row it names.",
+      "html": "<ol class=\"ds-roles\"><li class=\"ds-roles-now\"><span class=\"ds-yr\">2026</span><span class=\"ds-org\">Pixel Shark<span class=\"ds-now\">Current</span></span><span class=\"ds-role\">Project Manager, D2C Performance Marketing</span><span class=\"ds-detail\">The coordination point for assigned D2C clients.</span></li><li><span class=\"ds-yr\">2025</span><span class=\"ds-org\">Trunk Media</span><span class=\"ds-role\">Social Media Manager &middot; Ahmedabad</span></li></ol>",
+      "css": ".ds-roles { list-style:none; margin:0; padding:0; max-width:60rem; position:relative; font-family:\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; } .ds-roles::before { content:\"\"; position:absolute; left:5.05rem; top:.9rem; bottom:1.1rem; width:1px; background:var(--rule-soft,#E8DEE0); } .ds-roles li { position:relative; display:grid; gap:.1rem .9rem; grid-template-columns:4.6rem 1fr; padding:.95rem 0 1.15rem; } .ds-roles li::before { content:\"\"; position:absolute; left:calc(5.05rem - 3px); top:1.5rem; width:7px; height:7px; border-radius:50%; background:var(--rule,#DED2D6); box-shadow:0 0 0 4px var(--paper,#F6F1F2); } .ds-roles-now::before { background:var(--accent,#9E3B54) !important; } .ds-yr { font-family:\"Bricolage Grotesque\", ui-sans-serif, system-ui, sans-serif; font-variant-numeric:tabular-nums; font-size:1rem; font-weight:600; letter-spacing:-.02em; color:var(--ink-soft,#6B5D60); padding-top:.2rem; white-space:nowrap; } .ds-org { grid-column:2; font-family:\"Bricolage Grotesque\", ui-sans-serif, system-ui, sans-serif; font-weight:600; font-size:clamp(1.15rem,2.5vw,1.4rem); letter-spacing:-.034em; line-height:1.1; color:var(--ink,#221B1D); } .ds-role { grid-column:2; font-size:.9375rem; color:var(--ink-soft,#6B5D60); margin-top:.2rem; } .ds-detail { grid-column:2; font-size:.9375rem; line-height:1.65; color:var(--ink-soft,#6B5D60); margin-top:.5rem; max-width:50ch; } .ds-now { display:inline-block; margin-left:.5rem; vertical-align:.22em; font:500 .6875rem/1 \"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; letter-spacing:0; color:var(--accent-sunk,#7E2C42); background:color-mix(in oklab, var(--accent,#9E3B54) 12%, var(--paper,#F6F1F2)); padding:.22rem .42rem; border-radius:5px; } @media (min-width:52rem) { .ds-roles li { grid-template-columns:9.5rem 1fr; gap:.1rem 1.6rem; padding:1.35rem 0 1.6rem; } .ds-roles::before { left:10.3rem; } .ds-roles li::before { left:calc(10.3rem - 3px); top:1.7rem; } .ds-yr { position:sticky; top:6.25rem; align-self:start; font-size:clamp(1.35rem,2.5vw,1.95rem); line-height:1; color:var(--ink,#221B1D); padding-top:0; } }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "Accent-tinted status marker that lives inside a line of text, never standalone.",
+      "html": "<span class=\"ds-chip\">Current</span>",
+      "css": ".ds-chip { display:inline-block; vertical-align:.22em; font:500 .6875rem/1 \"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; letter-spacing:0; color:var(--accent-sunk,#7E2C42); background:color-mix(in oklab, var(--accent,#9E3B54) 12%, var(--paper,#F6F1F2)); padding:.22rem .42rem; border-radius:5px; }"
+    },
+    {
+      "name": "Scale Band",
+      "kind": "custom",
+      "refersTo": "band-cell",
+      "description": "Four facts between two hairlines with hairline cell dividers. Rules instead of big-number cards.",
+      "html": "<dl class=\"ds-band\"><div><dt>11</dt><dd>brand accounts personally managed</dd></div><div><dt>7</dt><dd>categories, from D2C to infrastructure</dd></div><div><dt>2.5K-22.5K</dt><dd>follower range across those accounts</dd></div><div><dt>MICA</dt><dd>The School of Ideas, Ahmedabad</dd></div></dl>",
+      "css": ".ds-band { display:grid; grid-template-columns:repeat(2,1fr); margin:0; border-top:1px solid var(--rule,#DED2D6); border-bottom:1px solid var(--rule,#DED2D6); font-family:\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; } @media (min-width:46rem) { .ds-band { grid-template-columns:repeat(4,1fr); } } .ds-band div { padding:1.15rem; border-left:1px solid var(--rule-soft,#E8DEE0); } .ds-band div:first-child { border-left:0; padding-left:0; } .ds-band dt { font-family:\"Bricolage Grotesque\", ui-sans-serif, system-ui, sans-serif; font-weight:600; font-size:clamp(1.15rem,3vw,1.4rem); letter-spacing:-.03em; line-height:1.15; font-variant-numeric:tabular-nums lining-nums; color:var(--ink,#221B1D); } .ds-band dd { margin:.3rem 0 0; font-size:.875rem; line-height:1.4; color:var(--ink-soft,#6B5D60); }"
+    },
+    {
+      "name": "Masthead",
+      "kind": "nav",
+      "refersTo": "masthead",
+      "description": "Sticky 4rem bar on 86% paper with a blur and a supports fallback. Its bottom rule appears only once the page has scrolled.",
+      "html": "<header class=\"ds-mast\" data-stuck><a class=\"ds-wordmark\" href=\"#top\">Priyal Banthia</a><nav aria-label=\"Sections\"><a href=\"#services\">What</a><a href=\"#history\">Where</a><a href=\"#work\">Accounts</a><a href=\"#contact\" class=\"ds-cta\">Connect</a></nav></header>",
+      "css": ".ds-mast { display:flex; align-items:center; justify-content:space-between; gap:1rem; height:4rem; padding-inline:clamp(1.25rem,5vw,2.5rem); background:color-mix(in oklab, var(--paper,#F6F1F2) 86%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid transparent; transition:border-color .3s cubic-bezier(.16,1,.3,1); font-family:\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; } @supports not (backdrop-filter: blur(1px)) { .ds-mast { background:var(--paper,#F6F1F2); } } .ds-mast[data-stuck] { border-bottom-color:var(--rule,#DED2D6); } .ds-wordmark { font-family:\"Bricolage Grotesque\", ui-sans-serif, system-ui, sans-serif; font-weight:700; font-size:1.0625rem; letter-spacing:-.03em; color:var(--ink,#221B1D); text-decoration:none; white-space:nowrap; } .ds-mast nav { display:flex; align-items:center; gap:clamp(.9rem,2.6vw,1.6rem); } .ds-mast nav a { font-size:.9375rem; color:var(--ink-soft,#6B5D60); text-decoration:none; white-space:nowrap; transition:color .2s cubic-bezier(.16,1,.3,1); } .ds-mast nav a:hover { color:var(--ink,#221B1D); } .ds-mast nav a.ds-cta { color:var(--ink,#221B1D); font-weight:500; } .ds-mast nav a:focus-visible { outline:2px solid var(--accent,#9E3B54); outline-offset:3px; border-radius:2px; }"
+    },
+    {
+      "name": "Calendar Entry",
+      "kind": "custom",
+      "refersTo": "calendar-entry",
+      "description": "The daily calendar is the deliverable, so the section is laid out as one: a Mon-Sun header and six services placed across seven columns as scheduled entries, leaving one empty cell as a real week would.",
+      "html": "<div class=\"ds-cal-days\" aria-hidden=\"true\"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div><ul class=\"ds-cal\"><li style=\"--s:1;--n:4\"><h3>The daily calendar</h3><p>Daily content calendars across multiple accounts, scheduling, and community management.</p></li><li style=\"--s:5;--n:3\"><h3>Content strategy</h3><p>Deciding what an account should post and why.</p></li><li style=\"--s:2;--n:3\"><h3>Meta Ads</h3><p>Paid campaigns, with the reporting that explains what the spend did.</p></li></ul>",
+      "css": ".ds-cal-days { display:grid; grid-template-columns:repeat(7,1fr); gap:.6rem; margin-bottom:.55rem; padding-bottom:.5rem; border-bottom:1px solid var(--rule-soft,#E8DEE0); } .ds-cal-days span { font-family:\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; font-size:.6875rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft,#6B5D60); } .ds-cal { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(7,1fr); gap:.6rem; max-width:60rem; } .ds-cal li { grid-column:var(--s) / span var(--n); padding:1rem 1.05rem 1.1rem; background:var(--paper-card,#FFFBFC); border:1px solid var(--rule-soft,#E8DEE0); border-radius:10px; } .ds-cal h3 { margin:0; font-family:\"Bricolage Grotesque\", ui-sans-serif, system-ui, sans-serif; font-size:clamp(1.1rem,2.3vw,1.4rem); line-height:1.1; font-weight:600; letter-spacing:-.034em; color:var(--ink,#221B1D); } .ds-cal p { margin:.4rem 0 0; font-family:\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; font-size:.9375rem; line-height:1.65; color:var(--ink-soft,#6B5D60); max-width:34ch; } @media (max-width:46rem) { .ds-cal-days { display:none } .ds-cal { grid-template-columns:1fr; gap:.55rem } .ds-cal li { grid-column:1 / -1 } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Eleven Worlds, One Left Edge",
+    "overview": "The page makes a single argument: one manager has run brands that share no visual language at all, from a black skincare feed to a highway contractor. So the system is built as a quiet stage carrying loud evidence. The stage is rose-warm paper, hairlines, one accent, and a left edge that never moves from the masthead wordmark to the footer line. The evidence is a mosaic of eleven coloured tiles, each wearing its own brand's colour, and a header built from the same eleven: a 3x3 grid of account fields with her cut out of her own photograph standing in front of it. Her medium is the grid, so the page opens on one. The restraint of the stage is what lets the range of the tiles read as range rather than noise.\n\nDensity is editorial rather than promotional: facts sit in a run of 1px rules instead of big-number cards, roles sit on a marker spine instead of in panels, and nothing is boxed unless it is a clickable object. Surfaces are flat at rest: there is no at-rest atmospheric shadow anywhere in the build, and depth is carried by hairlines, by the tonal step between paper and card-paper, and by colour. Everything that lifts earns it by being touched. The page is light-locked and the light stage is load-bearing, because the dark account fields only read as objects sitting on a page if the page under them is paper.\n\nThe palette leans rose on purpose: the warm neutral is pulled toward red-violet rather than yellow, and the accent is a muted wine. The beige / brass / espresso portfolio family was rejected. The hue test is mechanical and the trap is real - an earlier shipped ramp read as peach because its green channel sat above its blue.\n\nThe world was chosen by interview, not by roll. Three materially different directions were put to the user with their trade-offs stated inside each option; the user chose \"The Feed\" and a light warm neutral over a recommended dark stage, then redirected the section order and asked for the entrance overlay mid-build. There is no seed key because no script roll ran. The light lock is the user's own decision against the recommendation, not a default.",
+    "keyCharacteristics": [
+      "Rose-warm paper stage, never yellow-beige, never dark",
+      "One accent (#9E3B54) whose visible home is the primary action: it fills the primary button at rest, and also carries focus, caret, selection and the current-role marker",
+      "One left edge for every section, one reading measure inside it",
+      "A single 10px radius for anything interactive or tiled, 6px for the header grid cells; no pills",
+      "Eleven per-account colour fields treated as content, not theme",
+      "Hairlines, markers and a calendar grid instead of cards; flat until touched, with no at-rest shadow",
+      "Browser chrome (selection, caret, scrollbar, focus ring) themed from the palette",
+      "Icons authored inline at one stroke weight; no icon library, no emoji"
+    ],
+    "rules": [
+      {
+        "name": "The Blue Over Green Rule",
+        "body": "Rose-warm means the blue channel sits at or above the green channel in every neutral. The shipped paper measures rgb(246,241,242). A warm neutral whose green exceeds its blue is yellow-beige or peach wearing the rose label, and it passes a visual glance while failing the brief. Check the channels, not the impression.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Accent Rule",
+        "body": "There is exactly one accent, it is used across the whole page rather than per section, and it must actually reach the eye on the primary action rather than surviving only in a badge. A new surface that wants a second accent needs a different argument, not a different colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Field Is Content Rule",
+        "body": "The eleven --field values are content tokens, not theme tokens. They exist because the brands they stand for exist. Never recolour UI from a field, never add a twelfth field without a twelfth account, and never choose a field for compositional balance alone.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lightness Range Rule",
+        "body": "The field set ranges across lightness as well as hue, and some fields must sit lighter than the page. Four of the eleven do, and at least one of them sits in a double-width cell so the range lands where the section carries its weight. Eleven dark fields of similar value collapse into one dark mass and the page loses its argument. A light field flips both the foreground and the direction of its gradient lift.",
+        "section": "colors"
+      },
+      {
+        "name": "The Derived Secondary Rule",
+        "body": "Secondary text on a coloured field is derived from that field itself with color-mix(in oklab, var(--fg) N%, var(--field)), preceded by an equivalent rgba() fallback declaration. It is a computed value, not a palette entry, and it is never grey, never a blanket opacity, and never a hand-picked second colour per tile. Grey on a coloured surface is the failure this rule exists to prevent, so a derived secondary is never \"fixed\" by being replaced with a neutral.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light-Locked Rule",
+        "body": "No dark theme, no prefers-color-scheme branch, no toggle. The light stage is a decision, not a default.",
+        "section": "colors"
+      },
+      {
+        "name": "The Chrome Is Ours Rule",
+        "body": "Selection, caret, scrollbar track and thumb, focus ring and underline offset are all drawn from the palette. The parts nobody designs still carry the design.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Figure Rule",
+        "body": "Every number that can be compared or scanned carries font-variant-numeric: tabular-nums. Figures never reflow their own column.",
+        "section": "typography"
+      },
+      {
+        "name": "The Measure Rule",
+        "body": "Prose is capped in characters, not container width. A paragraph carries its own ch cap, so a list can run wider than the reading column without its text running long.",
+        "section": "typography"
+      },
+      {
+        "name": "The Scale-By-Family Rule",
+        "body": "Subtitle-level text is the same size as body text and is separated from it by family, weight and tracking. Do not add a type step to signal a hierarchy that family already signals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Scan Column Rule",
+        "body": "Inside a scannable list, the line the reader is actually hunting for gets the display face and the size step; on the timeline that is the employer, not the job title, and in the services list it is the service name.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Left Edge Rule",
+        "body": "Content is capped by a max-width on the children of a full-width section, never by centring a narrower column inside a wider one. A centred 44rem column inside a 78rem page produces two competing left edges and reads as misalignment rather than composition.",
+        "section": "layout"
+      },
+      {
+        "name": "The Own-Cap Exception Rule",
+        "body": "A block may exceed the 44rem reading measure only if every text run inside it carries its own ch cap, and when it does it goes to the one secondary width, 60rem. One exception width, not a width per block.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Runs of facts are separated by 1px rules or by a spine and markers, not wrapped in cards. Only a clickable object gets a filled, rounded container.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat-Until-Touched Rule",
+        "body": "Shadows are a response to state, not decoration. If an element cannot be hovered or pressed it carries no atmospheric shadow, and the system now has no exception: a surface that needs to separate from the page uses a hairline and a tonal step, as the calendar entries do.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Ink-Tinted Shadow Rule",
+        "body": "Shadows are tinted with rgba(34,27,29,...) (ink) or with the accent, never neutral black, except where the shadow falls on a saturated field rather than on paper.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Single Radius Rule",
+        "body": "10px is the radius. A new interactive surface or tile uses 10px and does not introduce a new value. 6px belongs to the header grid cells, 5px to chip-scale objects, 2px to focus shapes, 50% to the timeline marker.",
+        "section": "shapes"
+      },
+      {
+        "name": "The No Pills Rule",
+        "body": "Nothing in the page content is fully rounded. Buttons, tiles and chips are squared-off rectangles with a soft corner.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Tessellation Rule",
+        "body": "The mosaic's spans always sum to a multiple of its column count, and grid-auto-flow: row dense is the guard so a future change to the tile count backfills rather than opening a hole. A tile is not added without rebalancing the spans.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Never-Hidden Rule",
+        "body": "Tiles are visible in CSS by default and the script adds the pre-animation state, so with the script removed nothing is ever hidden; the no-JS page renders at the same height as the live one. The reveal class is dropped 1.5s after it fires so it can never replay, and a 2.5s failsafe timer releases it regardless of what the observer does, because the mosaic must never be able to sit at opacity 0.",
+        "section": "components"
+      },
+      {
+        "name": "The Full Collapse Rule",
+        "body": "prefers-reduced-motion: reduce collapses every transition and animation to .01ms, removes the loader outright, stops the header grid's cycle with animation:none so it rests on nine different fields, forces the mosaic to its settled state, disables the tile hover lift and turns smooth scrolling off.",
+        "section": "components"
+      },
+      {
+        "name": "The Own Base Colour Rule",
+        "body": "Any surface that cycles through the fields takes its own first field as its static base, never a shared one. The header grid's nine cells each sit on their own --c1: based on a single shared field the whole grid rendered as one colour with animation off, so every reduced-motion visitor lost the range the grid exists to show. An animated set must still read as a set when the animation never runs.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Ch-Cap On Display Rule",
+        "body": "Display type whose line count matters carries no ch-based max-width. The hero's max-width: 22ch measured 775px against a 776px column, so it bound by one pixel with the webfont loaded and by far more with the fallback, flipping the headline to three lines until the font swapped in. A ch cap moves when the font moves; let the grid column be the measure.",
+        "section": "typography"
+      },
+      {
+        "name": "The Literal Keyframe Rule",
+        "body": "Two animations that differ only by direction are written as two literal keyframe sets, not one set parameterised by a custom property. transform: translateY(calc(var(--dir,-1) * 100%)) inside a keyframe computed to identity and the loader's halves never moved at all. Custom-property arithmetic inside a keyframe transform is not reliable; two plain animations cannot fail that way.",
+        "section": "components"
+      },
+      {
+        "name": "The Can't-Desynchronise Rule",
+        "body": "A device that labels a row must not be able to drift from the row it names, which means CSS when CSS can do the job. The sticky year replaced a scripted pinned year that depended on an IntersectionObserver with no fallback and deduped by the year string, so the two 2025 roles made it name the wrong employer. position: sticky inside each row's own box cannot name anything but its own row.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do give every section the same 78rem box and clamp(1.25rem, 5vw, 2.5rem) gutter and cap its children at 44rem, so the page keeps one left edge.",
+      "Do let a block exceed the reading measure only when every text run inside it carries its own ch cap, and send it to the one 60rem secondary width.",
+      "Do check a candidate neutral channel by channel: blue at or above green, or it is not rose-warm. The shipped paper is rgb(246,241,242).",
+      "Do keep the accent visible on the primary action; a palette whose one accent survives only in a badge is failing the One Accent Rule, not honouring it.",
+      "Do use 10px for any new interactive or tiled surface, and 6px for a small grid cell.",
+      "Do derive secondary text on a coloured field with color-mix(in oklab, var(--fg) N%, var(--field)), with an rgba() fallback declared first, and expect a colour audit to flag the 22 computed results as drift. They are content, not palette.",
+      "Do separate runs of facts with 1px hairlines, a spine and markers, or a calendar grid, instead of wrapping them in cards.",
+      "Do tint shadows with ink (rgba(34,27,29,...)) or the accent, and keep atmospheric shadows tied to hover.",
+      "Do give the scanned line in a list the display face and the size step, as the employer gets on the timeline and the service name gets in its list.",
+      "Do set font-variant-numeric: tabular-nums on every figure, year and count.",
+      "Do theme browser surfaces from the palette: ::selection, caret-color, scrollbar track and thumb, a 2px accent :focus-visible ring at 3px offset, and .22em underline offset on links.",
+      "Do author icons as inline SVG in the single <defs> sprite at stroke-width 1.6, as a <symbol> with an explicit viewBox, and mark every consuming <svg> aria-hidden=\"true\".",
+      "Do keep every text colour at AA or better; the measured floor in this build is 4.98:1 on the lightest account tile.",
+      "Do make any full-screen or reveal state clear itself without JavaScript, with a timer as a backstop only.",
+      "Do send any block that earns the own-cap exception to the single 60rem secondary width.",
+      "Do keep the page's own labels consistent with the counts it claims: the eleven tile categories resolve to the seven the scale band states.",
+      "Do keep raster provenance recorded, never display a raster above its native size, and keep unreferenced source images out of the upload.",
+      "Do give a surface that must separate from the page a hairline and a tonal step rather than an at-rest shadow.",
+      "Do give any set that cycles colours its own first value as its static base, so it still reads as a set with animation off.",
+      "Do prefer CSS for a device that labels or tracks a row; a scripted one can desynchronise from the row it names.",
+      "Do write two literal keyframe sets for two directions rather than parameterising one with a custom property."
+    ],
+    "donts": [
+      "Don't add a dark theme, a prefers-color-scheme branch, or a theme toggle. The page is light-locked by decision.",
+      "Don't centre a narrower reading column inside a wider section; that is the misalignment the One Left Edge Rule exists to prevent.",
+      "Don't drift the warm neutral toward yellow-beige, brass, peach or espresso, and don't let its green channel rise above its blue. The neutral leans rose.",
+      "Don't introduce a second accent, and don't use the accent as a section background.",
+      "Don't treat the eleven --field colours as theme colours, or add one without an account behind it.",
+      "Don't fill the field set with eleven dark values of similar lightness; keep four light fields in the mix with the .light treatment, keep at least one of them in a double-width cell, and don't ship two fields that read as the same colour.",
+      "Don't use grey, or a blanket opacity, for secondary text on a coloured field, and don't replace a derived secondary with a literal to silence an audit.",
+      "Don't make anything in the page content fully rounded, and don't add a radius value beyond 2 / 5 / 6 / 10px and the one 7px circle.",
+      "Don't put an at-rest atmospheric shadow on anything; the build has none.",
+      "Don't add another blocking entrance or hold-screen to a new surface, and don't let any reveal or overlay state persist where it could leave content at opacity 0.",
+      "Don't use an uppercase letterspaced label as a kicker above a heading; that type role belongs inside tiles and chips only.",
+      "Don't use emoji, an icon font, or an icon library in place of the authored sprite, and don't author a sprite entry as a <g> - it cannot establish a viewport and the art will clip.",
+      "Don't put a ch-based cap on display type whose line count matters - the cap moves when the font does.",
+      "Don't draw ruled columns behind a grid of cards. They were built here as a repeating-linear-gradient for the calendar and removed: they sat mostly hidden behind the entries, earned nothing, and read as decorative stripes.",
+      "Don't base a cycling set of colour cells on one shared field; with animation off the whole set collapses to a single colour.",
+      "Don't do custom-property arithmetic inside a keyframe transform."
+    ]
+  }
+}

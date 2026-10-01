@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Priyal Banthia, Social Media Manager</title>
+<meta name="description" content="Social media manager in Ahmedabad. Eleven brand accounts across jewellery, skincare, hospitality, fashion, food and heavy infrastructure. Open to freelance projects and full-time roles.">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Priyal Banthia, Social Media Manager">
+<meta property="og:description" content="Eleven brand accounts, from a diamond jewellery label to a highway and infrastructure contractor.">
+<meta property="og:image" content="assets/priyal-portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%239E3B54'/%3E%3Cpath d='M11 24V8h6.2a4.9 4.9 0 0 1 0 9.8H14' stroke='%23F6F1F2' stroke-width='2.6' fill='none' stroke-linecap='square'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,400..800&family=Instrument+Sans:ital,wght@0,400..600;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ---------------------------- tokens ---------------------------- */
+:root{
+  /* warm neutral stage, rose-warm rather than yellow-beige */
+  --paper:      #F6F1F2;
+  --paper-card: #FFFBFC;
+  --paper-sunk: #EDE5E7;
+  --ink:        #221B1D;   /* 15.1:1 on --paper */
+  --ink-soft:   #6B5D60;   /*  5.5:1 on --paper */
+  --rule:       #DED2D6;
+  --rule-soft:  #E8DEE0;
+  --accent:     #9E3B54;   /*  5.9:1 on --paper, 6.6:1 under white */
+  --accent-sunk:#7E2C42;
+
+  --feed: 44rem;   /* the reading column */
+  --wide: 78rem;   /* what the roster breaks out to */
+  --gut:  clamp(1.25rem, 5vw, 2.5rem);
+
+  --display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --body:    "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --ease: cubic-bezier(.16,1,.3,1);
+
+  /* the eleven account fields live here so the tiles and the boot strip
+     read the same values; duplicating them let the strip go stale. */
+  --f-sotrue:#111111;
+  --f-srivari:#0E3D27;
+  --f-mcl:#313B41;
+  --f-alibaug:#123E63;
+  --f-walkthetalk:#EFD6CE;
+  --f-indianchai:#E4A64B;
+  --f-diamour:#4A1B3D;
+  --f-crystalicious:#DED3EE;
+  --f-slaystay:#2A1C6B;
+  --f-numaani:#7C2E13;
+  --f-grandmercure:#CBD8CE;
+
+  /* the portrait mount, the same sage as the grandmercure field */
+  --portrait-field:#CBD8CE;
+}
+
+/* ------------------- base and browser surfaces -------------------
+   the parts nobody draws still carry the design. */
+*,*::before,*::after{ box-sizing:border-box }
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scrollbar-color: var(--rule) var(--paper);
+  scrollbar-width: thin;
+}
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto } }
+/* the masthead is sticky, so anchored sections must clear it */
+section[id]{ scroll-margin-top:5.25rem }
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:400 1.0625rem/1.65 var(--body);
+  font-feature-settings:"ss01","cv05";
+  -webkit-font-smoothing:antialiased;
+  caret-color:var(--accent);
+  overflow-x:hidden;
+}
+::selection{ background:var(--accent); color:#FFFBFC }
+::-webkit-scrollbar{ width:11px;height:11px }
+::-webkit-scrollbar-track{ background:var(--paper) }
+::-webkit-scrollbar-thumb{ background:var(--rule);border:3px solid var(--paper);border-radius:99px }
+::-webkit-scrollbar-thumb:hover{ background:var(--ink-soft) }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px }
+:where(a){ color:inherit; text-decoration-thickness:1px; text-underline-offset:.22em }
+img{ max-width:100%;height:auto;display:block }
+h1,h2,h3{ font-family:var(--display); font-weight:600; letter-spacing:-.028em; text-wrap:balance; margin:0 }
+p{ margin:0; max-width:64ch }
+.num{ font-variant-numeric:tabular-nums lining-nums }
+
+/* --------------------------- scaffold ---------------------------
+   post-shaped sections in one reading column, hairline-separated,
+   with the roster breaking out to full width. */
+/* every section shares ONE left edge at the wide gutter; the reading measure
+   is applied to the content inside, not by centring a narrower column. a
+   centred 44rem column inside a 78rem page gives the layout two competing
+   left edges and reads as misalignment rather than composition. */
+.post{
+  max-width:var(--wide); margin-inline:auto;
+  padding:clamp(3rem,7vw,4.75rem) var(--gut);
+  border-top:1px solid var(--rule-soft);
+}
+.post > *{ max-width:var(--feed) }
+.post:first-of-type{ border-top:0 }
+.post > * + *{ margin-top:1.5rem }
+.post h2{ font-size:clamp(1.65rem,4.4vw,2.35rem); line-height:1.1 }
+.lede{ color:var(--ink-soft); font-size:1.0625rem }
+/* the mosaic is the one block that uses the full width */
+.post > .mosaic, .post > .roster-head{ max-width:none }
+/* these lists cap their own inner text, so they may exceed the prose measure */
+.post > .cal, .post > .roles-wrap{ max-width:60rem }
+
+/* --------------------------- masthead --------------------------- */
+.masthead{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  height:4rem; max-width:var(--wide); margin-inline:auto; padding-inline:var(--gut);
+  background:color-mix(in oklab, var(--paper) 86%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s var(--ease);
+}
+.masthead[data-stuck]{ border-bottom-color:var(--rule) }
+@supports not (backdrop-filter: blur(1px)){ .masthead{ background:var(--paper) } }
+.wordmark{ font-family:var(--display); font-weight:700; font-size:1.0625rem; letter-spacing:-.03em; text-decoration:none; white-space:nowrap }
+.masthead nav{ display:flex; align-items:center; gap:clamp(.9rem,2.6vw,1.6rem) }
+.masthead nav a{ font-size:.9375rem; color:var(--ink-soft); text-decoration:none; white-space:nowrap; transition:color .2s var(--ease) }
+.masthead nav a:hover{ color:var(--ink) }
+.masthead nav a.cta{ color:var(--ink); font-weight:500 }
+@media (max-width:32rem){ .nav-hide{ display:none } }
+
+/* ----------------------------- hero ----------------------------- */
+.hero{
+  max-width:var(--wide);
+  display:grid; gap:clamp(1.75rem,5vw,3.5rem);
+  grid-template-columns:1fr; align-items:end;
+  padding-top:clamp(2.5rem,7vw,4.5rem); padding-bottom:clamp(2.75rem,7vw,4rem);
+}
+@media (min-width:52rem){ .hero{ grid-template-columns:minmax(0,1fr) 21rem } }
+.post.hero > * + *{ margin-top:0 }  /* it is a grid; it spaces with gap */
+.post.hero > *{ max-width:none }    /* its columns are sized by the grid */
+/* ...but the portrait keeps its own cap, which that blanket rule out-specifies */
+.hero h1{
+  font-size:clamp(2.3rem,6.4vw,3.5rem); line-height:1.05;
+  letter-spacing:-.038em; font-weight:700; margin-bottom:1.25rem;
+  /* no ch-based cap: 22ch measured 775px against a 776px column, so it bound by
+     a pixel with the webfont loaded and by far more with the fallback, which
+     flipped the headline to three lines before the font arrived. the grid
+     column is the measure. */
+}
+.hero p{ font-size:1.125rem; color:var(--ink-soft); max-width:46ch }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.75rem }
+/* one mounted panel, not eleven shifting fields. the cycling grid pulled the
+   eye off both her and the headline, and the range already has a whole section.
+   the mount is the sage that is already in the field set: her hair is near
+   black, so a dark panel would merge with it, and the paper is too close in
+   value to separate her from the page. she is contained rather than breaking
+   the frame, because half of her on the mount and half on the paper reads as a
+   mistake once there is a visible edge.
+   the matte comes from the deck photograph, cropped above the table and chair
+   that the matting could not separate, then dissolved at the base. */
+.portrait{
+  position:relative; order:-1; justify-self:start;
+  width:min(14rem,64vw); aspect-ratio:1/1; overflow:hidden;
+  border-radius:10px; border:2px solid var(--ink);
+  background:var(--portrait-field);
+}
+@media (min-width:52rem){ .portrait{ order:0; justify-self:end; width:100% } }
+.hero-cut{
+  position:absolute; z-index:1; pointer-events:none;
+  left:0; width:100%; max-width:none; bottom:0;   /* headroom above her hair */
+}
+
+/* ---------------------------- buttons ----------------------------
+   one radius system: 10px everywhere. */
+.btn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.72rem 1.15rem; border:1px solid var(--accent); border-radius:10px;
+  background:var(--accent); color:#FFFBFC;
+  font:500 .9375rem/1 var(--body); text-decoration:none; white-space:nowrap;
+  transition:transform .18s var(--ease), background .18s var(--ease), box-shadow .18s var(--ease);
+}
+.btn:hover{ background:var(--accent-sunk); border-color:var(--accent-sunk); box-shadow:0 6px 18px -6px rgba(158,59,84,.45) }
+.btn:active{ transform:translateY(1px) }
+.btn-ghost{ background:transparent; color:var(--ink); border-color:var(--rule) }
+.btn-ghost:hover{ background:var(--paper-card); border-color:var(--ink); color:var(--ink); box-shadow:none }
+.btn svg{ width:16px;height:16px;flex:none }
+
+/* --------------------------- scale band --------------------------
+   a run of facts separated by 1px rules, not big-number cards. */
+.band{ max-width:var(--wide); margin-inline:auto; padding-inline:var(--gut) }
+.band dl{
+  display:grid; grid-template-columns:repeat(2,1fr); margin:0;
+  border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+}
+@media (min-width:46rem){ .band dl{ grid-template-columns:repeat(4,1fr) } }
+.band div{ padding:1.15rem; border-left:1px solid var(--rule-soft) }
+.band div:first-child{ border-left:0; padding-left:0 }
+@media (max-width:46rem){
+  .band div:nth-child(2n+1){ border-left:0; padding-left:0 }
+  .band div:nth-child(n+3){ border-top:1px solid var(--rule-soft) }
+}
+.band dt{ font-family:var(--display); font-weight:600; font-size:clamp(1.15rem,3vw,1.4rem); letter-spacing:-.03em; line-height:1.15 }
+.band dd{ margin:.3rem 0 0; font-size:.875rem; color:var(--ink-soft); line-height:1.4 }
+
+/* --------------------------- services --------------------------- */
+/* the list may run wider than the prose measure because each description
+   carries its own 40ch cap; holding the whole list to 44rem leaves most of a
+   desktop page empty to its right. */
+/* the list may run wider than the prose measure because each description
+   carries its own cap; holding it to 44rem leaves a desktop page empty to the
+   right. the names are set at display scale: at body size this section is six
+   grey paragraphs and nothing to catch a scan. */
+/* the daily calendar is the deliverable, so the section is laid out as one:
+   seven day columns, the services placed across them like scheduled entries,
+   and one empty cell left where a calendar would have one. */
+.cal{ max-width:60rem }
+.cal-days{
+  display:grid; grid-template-columns:repeat(7,1fr); gap:.6rem;
+  margin-bottom:.55rem; padding-bottom:.5rem;
+  border-bottom:1px solid var(--rule-soft);
+}
+.cal-days span{
+  font-size:.6875rem; font-weight:500; letter-spacing:.08em;
+  color:var(--ink-soft); text-transform:uppercase;
+}
+/* the day header and the spanning entries carry the calendar on their own; the
+   ruled day columns sat mostly hidden behind the cards and earned nothing. */
+.services{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:repeat(7,1fr); gap:.6rem;
+}
+.services li{
+  grid-column:var(--s) / span var(--n);
+  padding:1rem 1.05rem 1.1rem;
+  background:var(--paper-card);
+  border:1px solid var(--rule-soft); border-radius:10px;
+}
+.services h3{
+  font-size:clamp(1.1rem,2.3vw,1.4rem); line-height:1.1;
+  letter-spacing:-.034em; font-weight:600;
+}
+.services p{ margin-top:.4rem; font-size:.9375rem; color:var(--ink-soft); max-width:34ch }
+@media (max-width:46rem){
+  .cal-days{ display:none }
+  .services{ grid-template-columns:1fr; gap:.55rem }
+  .services li{ grid-column:1 / -1 }
+}
+
+/* --------------------------- timeline ---------------------------
+   by year and employer; exact month dates live on her resume. */
+.roles-wrap{ max-width:60rem }
+
+/* a spine with a marker per role, and the EMPLOYER leading rather than the job
+   title: both a recruiter and a brand owner scan this column for company names.
+   row rules are dropped because the spine and markers already separate them. */
+.roles{ list-style:none; margin:0; padding:0; max-width:60rem; position:relative }
+.roles::before{
+  content:""; position:absolute; left:5.05rem; top:.9rem; bottom:1.1rem;
+  width:1px; background:var(--rule-soft);
+}
+.roles li{
+  position:relative;
+  display:grid; gap:.1rem .9rem; grid-template-columns:4.6rem 1fr;
+  padding:.95rem 0 1.15rem;
+}
+.roles li::before{   /* the marker on the spine */
+  content:""; position:absolute; left:calc(5.05rem - 3px); top:1.5rem;
+  width:7px; height:7px; border-radius:50%;
+  background:var(--rule); box-shadow:0 0 0 4px var(--paper);
+}
+.roles li.is-now::before{ background:var(--accent) }
+.roles .yr{
+  font-family:var(--display); font-variant-numeric:tabular-nums;
+  font-size:1rem; font-weight:600; letter-spacing:-.02em;
+  color:var(--ink-soft); padding-top:.2rem; white-space:nowrap;
+}
+.roles .org{
+  grid-column:2; font-family:var(--display); font-weight:600;
+  font-size:clamp(1.15rem,2.5vw,1.4rem); letter-spacing:-.034em; line-height:1.1;
+}
+.roles .role{ grid-column:2; font-size:.9375rem; color:var(--ink-soft); margin-top:.2rem }
+.roles .detail{ grid-column:2; font-size:.9375rem; color:var(--ink-soft); margin-top:.5rem; max-width:50ch }
+.roles .now{
+  display:inline-block; margin-left:.5rem; vertical-align:.22em;
+  font:500 .6875rem/1 var(--body); color:var(--accent-sunk);
+  background:color-mix(in oklab, var(--accent) 12%, var(--paper));
+  padding:.22rem .42rem; border-radius:5px; letter-spacing:0;
+}
+@media (max-width:32rem){
+  .roles::before, .roles li::before{ display:none }
+  .roles li{ grid-template-columns:1fr; padding:1.1rem 0; border-top:1px solid var(--rule-soft) }
+  .roles .org,.roles .role,.roles .detail{ grid-column:1 }
+}
+
+/* each row carries its own year, stuck inside that row's own box: the year
+   holds at the top while its role scrolls past, then the next row's year
+   pushes it out. pure CSS, so it needs no observer and cannot desynchronise
+   from the row it names. */
+.roles-wrap{ max-width:60rem }
+@media (min-width:52rem){
+  .roles .yr{
+    position:sticky; top:6.25rem; align-self:start;
+    /* sized so the widest label, the 2025-26 range, still fits its column:
+       at a larger scale it overran into the employer names. */
+    font-size:clamp(1.35rem,2.5vw,1.95rem); line-height:1;
+    color:var(--ink); padding-top:0;
+  }
+  .roles li{ grid-template-columns:9.5rem 1fr; gap:.1rem 1.6rem; padding:1.35rem 0 1.6rem }
+  .roles::before{ left:10.3rem }       /* in the gutter, not on the text */
+  .roles li::before{ left:calc(10.3rem - 3px); top:1.7rem }
+}
+
+/* =========================== the mosaic ===========================
+   the argument of the page. eleven accounts that share no visual world,
+   each carrying its own, held in one frame. the range is the claim, so
+   it is shown rather than written. the section surface stays paper: the
+   tiles are coloured objects on the page, not an inverted section.
+   spans total 16 cells against 4 columns, so it tessellates exactly. */
+.mosaic{
+  display:grid; gap:.6rem; grid-auto-flow:row dense; margin:0; padding:0; list-style:none;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+@media (min-width:40rem){ .mosaic{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:.7rem } }
+.mosaic > li{ display:flex }
+.mosaic > li.w2{ grid-column:span 2 }
+
+.acct{
+  --field:#241F21; --fg:#FFFBFC;
+  position:relative; isolation:isolate; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end; gap:.3rem;
+  flex:1; min-height:9.5rem; padding:1rem;
+  border-radius:10px; text-decoration:none;
+  background:var(--field); color:var(--fg);
+  transition:transform .24s var(--ease), box-shadow .24s var(--ease);
+}
+@media (min-width:40rem){ .acct{ min-height:10.5rem; padding:1.1rem } }
+.acct::after{  /* a light lift so each field reads as a material, not a swatch */
+  content:""; position:absolute; inset:0; z-index:-1; border-radius:inherit;
+  background:linear-gradient(155deg, rgba(255,255,255,.14), rgba(255,255,255,0) 58%);
+}
+.acct:hover{ transform:translateY(-3px); box-shadow:0 3px 6px rgba(34,27,29,.08), 0 20px 40px -18px rgba(34,27,29,.45) }
+.acct:active{ transform:translateY(0) }
+.acct .cat{
+  font-size:.6875rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase;
+  color:rgba(255,251,252,.78);
+  color:color-mix(in oklab, var(--fg) 78%, var(--field));
+}
+.acct .name{
+  font-family:var(--display); font-weight:600; letter-spacing:-.025em;
+  font-size:1.0625rem; line-height:1.15;
+}
+.w2 .acct .name{ font-size:clamp(1.0625rem,2.2vw,1.3rem) }
+.acct .meta{
+  display:flex; align-items:center; gap:.35rem; margin-top:.15rem;
+  font-size:.75rem; font-variant-numeric:tabular-nums;
+  color:rgba(255,251,252,.74);
+  color:color-mix(in oklab, var(--fg) 74%, var(--field));
+}
+.acct .meta svg{ width:11px;height:11px;flex:none;transition:transform .2s var(--ease) }
+.acct:hover .meta svg{ transform:translate(1px,-1px) }
+.acct .figure{
+  font-family:var(--display); font-weight:600; font-variant-numeric:tabular-nums;
+  font-size:1.5rem; letter-spacing:-.03em; line-height:1; margin-bottom:.1rem;
+}
+
+/* the srivari before/after, kept deliberately small: proof, not a section */
+.acct .proof{
+  position:absolute; inset-block-start:.7rem; inset-inline-end:.7rem; z-index:1;
+  width:4.1rem; border-radius:5px; overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,.4); opacity:.95;
+  transition:width .26s var(--ease), opacity .26s var(--ease);
+}
+.acct:hover .proof{ width:5.4rem; opacity:1 }
+.acct .proof img{ width:100%; display:block }
+
+/* each account's own colour world. the point of the grid is that no two of
+   these brands share one, so the set ranges across hue AND lightness: eleven
+   dark fields of similar value collapse into a single dark mass and lose the
+   argument. three tiles sit lighter than the page to break the block. */
+.f-sotrue        { --field:var(--f-sotrue) }
+.f-srivari       { --field:var(--f-srivari) }
+.f-mcl           { --field:var(--f-mcl) }
+.f-alibaug       { --field:var(--f-alibaug) }
+.f-walkthetalk   { --field:var(--f-walkthetalk) }
+.f-indianchai    { --field:var(--f-indianchai) }
+.f-diamour       { --field:var(--f-diamour) }
+.f-crystalicious { --field:var(--f-crystalicious) }
+.f-slaystay      { --field:var(--f-slaystay) }
+.f-numaani       { --field:var(--f-numaani) }
+.f-grandmercure  { --field:var(--f-grandmercure) }
+
+/* the light fields carry dark type and a dark lift instead of a light one */
+.acct.light{ --fg:#2A1B1E }
+.acct.light::after{ background:linear-gradient(155deg, rgba(0,0,0,.055), rgba(0,0,0,0) 58%) }
+.acct.light .cat { color:rgba(42,27,30,.80); color:color-mix(in oklab, var(--fg) 80%, var(--field)) }
+.acct.light .meta{ color:rgba(42,27,30,.76); color:color-mix(in oklab, var(--fg) 76%, var(--field)) }
+.acct.light:hover{ box-shadow:0 3px 6px rgba(34,27,29,.08), 0 20px 40px -18px rgba(34,27,29,.35) }
+
+.roster-note{ margin-top:1.4rem; font-size:.875rem; color:var(--ink-soft) }
+.roster-head{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:.6rem 1.5rem; margin-bottom:1.6rem }
+.roster-head h2{ font-size:clamp(1.65rem,4.4vw,2.35rem); line-height:1.1 }
+
+/* the one authored motion moment: the mosaic settles in, once, on first view.
+   tiles are visible by default, so with JS off nothing is ever hidden. */
+.will-reveal .acct{ opacity:0; transform:translateY(16px) }
+.will-reveal.in .acct{
+  opacity:1; transform:none;
+  transition:opacity .66s var(--ease), transform .66s var(--ease);
+  transition-delay:calc(var(--i,0) * 46ms);
+}
+
+/* ---------------------------- contact ---------------------------- */
+.contact{ padding-bottom:clamp(4rem,9vw,6.5rem) }
+.contact h2{ font-size:clamp(1.85rem,5.2vw,2.6rem); line-height:1.06 }
+.contact-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.75rem }
+footer{
+  max-width:var(--wide); margin-inline:auto; padding:1.5rem var(--gut) 2.5rem;
+  border-top:1px solid var(--rule-soft);
+  display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; justify-content:space-between;
+  font-size:.8125rem; color:var(--ink-soft);
+}
+footer a{ color:var(--ink-soft) }
+footer a:hover{ color:var(--ink) }
+
+/* ============================ the boot ============================
+   the platforms she works on stack at the centre, part into two pairs, her
+   name rises out of the gap they open, and the screen then splits along that
+   same line to hand over the page. the overlay is two clipped halves, each
+   holding an identical stage, so the two read as one image until they part.
+   all CSS: it cannot strand a visitor if the script never runs. */
+.boot{ position:fixed; inset:0; z-index:60; pointer-events:none }
+.boot-half{
+  position:absolute; left:0; right:0; height:50%;
+  overflow:hidden; background:var(--paper);
+}
+/* two literal keyframe sets rather than one parameterised by a custom property:
+   a var() doing arithmetic inside a keyframe transform resolved to identity and
+   the halves never moved. two plain animations cannot fail that way. */
+.boot-t{ top:0;    animation:boot-part-up .82s cubic-bezier(.16,1,.3,1) 1.72s both }
+.boot-b{ bottom:0; animation:boot-part-dn .82s cubic-bezier(.16,1,.3,1) 1.72s both }
+.boot-t .boot-stage{ top:0 }
+.boot-b .boot-stage{ bottom:0 }
+.boot-stage{
+  position:absolute; left:0; right:0; height:100vh;
+  display:grid; place-content:center; justify-items:center;
+}
+/* the four marks, stacked then parted two up and two down */
+/* inset:0 + margin:auto with a definite size is what actually centres an
+   absolutely positioned box; place-content on the grid does not reach it, and
+   the marks pin to the stage's top-left corner instead. */
+.boot-logo{
+  position:absolute; inset:0; margin:auto;
+  width:clamp(30px,7.2vw,40px); height:clamp(30px,7.2vw,40px);
+  --tx:calc(var(--sx) * clamp(70px, 21vw, 122px));
+  --ty:calc(var(--sy) * clamp(46px, 11vw, 64px));
+  animation:boot-spread .86s var(--ease) both;
+  animation-delay:calc(.08s + var(--i) * .07s);
+}
+.boot-logo svg{ width:100%; height:100%; display:block }
+.boot-name{
+  position:relative;
+  font-family:var(--display); font-weight:700; letter-spacing:-.045em;
+  font-size:clamp(1.45rem,5.6vw,2.4rem); color:var(--ink);
+  clip-path:inset(50% 0 50% 0);
+  animation:boot-emerge .62s var(--ease) .78s both;
+}
+@keyframes boot-spread{
+  from{ opacity:0; transform:translate(0,0) scale(.62) rotate(var(--r,0deg)) }
+  40% { opacity:1 }
+  to  { opacity:1; transform:translate(var(--tx),var(--ty)) scale(1) rotate(0deg) }
+}
+@keyframes boot-emerge{
+  from{ clip-path:inset(50% 0 50% 0); letter-spacing:.04em }
+  to  { clip-path:inset(-30% 0 -30% 0); letter-spacing:-.045em }
+}
+@keyframes boot-part-up{ from{ transform:translateY(0) } to{ transform:translateY(-100%) } }
+@keyframes boot-part-dn{ from{ transform:translateY(0) } to{ transform:translateY(100%) } }
+
+/* ------------------------- reduced motion ------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .boot{ display:none }
+  *,*::before,*::after{
+    animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  .will-reveal .acct{ opacity:1; transform:none }
+  .acct:hover{ transform:none }
+}
+</style>
+</head>
+<body>
+
+<div class="boot" aria-hidden="true">
+  <div class="boot-half boot-t"><div class="boot-stage">
+      <span class="boot-logo" style="--i:0;--sx:-1;--sy:-1;--r:-8deg"><svg viewBox="0 0 24 24" fill="#E4405F"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span>
+      <span class="boot-logo" style="--i:1;--sx:1;--sy:-1;--r:8deg"><svg viewBox="0 0 24 24" fill="#0866FF"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span>
+      <span class="boot-logo" style="--i:2;--sx:-1;--sy:1;--r:6deg"><svg viewBox="0 0 20 20" fill="#0A66C2"><use href="#i-li"/></svg></span>
+      <span class="boot-logo" style="--i:3;--sx:1;--sy:1;--r:-6deg"><svg viewBox="0 0 24 24" fill="#0467DF"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg></span>
+      <span class="boot-name">Priyal Banthia</span>
+    </div></div>
+  <div class="boot-half boot-b"><div class="boot-stage">
+      <span class="boot-logo" style="--i:0;--sx:-1;--sy:-1;--r:-8deg"><svg viewBox="0 0 24 24" fill="#E4405F"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span>
+      <span class="boot-logo" style="--i:1;--sx:1;--sy:-1;--r:8deg"><svg viewBox="0 0 24 24" fill="#0866FF"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span>
+      <span class="boot-logo" style="--i:2;--sx:-1;--sy:1;--r:6deg"><svg viewBox="0 0 20 20" fill="#0A66C2"><use href="#i-li"/></svg></span>
+      <span class="boot-logo" style="--i:3;--sx:1;--sy:1;--r:-6deg"><svg viewBox="0 0 24 24" fill="#0467DF"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg></span>
+      <span class="boot-name">Priyal Banthia</span>
+    </div></div>
+</div>
+
+<!-- authored icons, one 1.6 stroke weight; no emoji standing in for an icon set -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <symbol id="i-out" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5.5 14.5 14.5 5.5M7 5.5h7.5V13"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.6" y="4.4" width="14.8" height="11.2" rx="2"/><path d="m3.2 5.6 6.8 5 6.8-5"/>
+    </symbol>
+    <symbol id="i-li" viewBox="0 0 20 20"><path fill="currentColor" d="M4.2 7.3h2.7v8.5H4.2zM5.55 3.2a1.57 1.57 0 1 0 0 3.14 1.57 1.57 0 0 0 0-3.14M8.7 7.3h2.6v1.17a2.85 2.85 0 0 1 2.56-1.4c1.83 0 2.94 1.2 2.94 3.37v5.36h-2.7v-4.75c0-1.13-.4-1.9-1.41-1.9-.86 0-1.37.58-1.59 1.14-.08.2-.1.48-.1.76v4.75H8.7z"/></symbol>
+  </defs>
+</svg>
+
+<header class="masthead" id="masthead">
+  <a class="wordmark" href="#top">Priyal Banthia</a>
+  <nav aria-label="Sections">
+    <a href="#services" class="nav-hide">What</a>
+    <a href="#history" class="nav-hide">Where</a>
+    <a href="#work">Accounts</a>
+    <a href="#contact" class="cta">Connect</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- 1 . hero ---------------------------------------------------- -->
+  <section class="post hero">
+    <div>
+      <h1>Eleven brands. One manager.</h1>
+      <p>I&rsquo;m Priyal Banthia, a social media manager in Ahmedabad. Daily calendars, content
+        strategy, Meta Ads.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#contact"><svg aria-hidden="true"><use href="#i-mail"/></svg>Work with me</a>
+        <a class="btn btn-ghost" href="#work">See the accounts</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <img class="hero-cut" src="assets/priyal-cutout.png" width="330" height="274"
+           alt="Priyal Banthia." fetchpriority="high">
+    </div>
+  </section>
+
+  <section class="band" aria-label="At a glance">
+    <dl>
+      <div><dt class="num">11</dt><dd>brand accounts personally managed</dd></div>
+      <div><dt class="num">7</dt><dd>categories, from D2C to infrastructure</dd></div>
+      <div><dt class="num">2.5K-22.5K</dt><dd>follower range across those accounts</dd></div>
+      <div><dt>MICA</dt><dd>The School of Ideas, Ahmedabad</dd></div>
+    </dl>
+  </section>
+
+  <!-- 2 . what ---------------------------------------------------- -->
+  <section class="post" id="services">
+    <h2>What I take on</h2>
+    <div class="cal">
+      <div class="cal-days" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+      <ul class="services">
+      <li style="--s:1;--n:4">
+        <h3>The daily calendar</h3>
+        <p>Several accounts at once. Planned, written, scheduled, approved, posted.</p>
+      </li>
+      <li style="--s:5;--n:3">
+        <h3>Content strategy</h3>
+        <p>What the account should say, settled before anyone designs a post.</p>
+      </li>
+      <li style="--s:2;--n:3">
+        <h3>Meta Ads</h3>
+        <p>Paid campaigns on Facebook and Instagram, with reporting that explains the spend.</p>
+      </li>
+      <li style="--s:5;--n:3">
+        <h3>Positioning and audience</h3>
+        <p>Who the brand is talking to, and on which channels it is worth showing up.</p>
+      </li>
+      <li style="--s:1;--n:3">
+        <h3>Running the account</h3>
+        <p>Approvals, deliverables, weekly reporting, invoicing, client retention.</p>
+      </li>
+      <li style="--s:4;--n:4">
+        <h3>Feed and grid design</h3>
+        <p>Templates and grid rhythm that make a profile worth following, not just visiting.</p>
+      </li>
+    </ul>
+    </div>
+  </section>
+
+  <!-- 3 . where --------------------------------------------------- -->
+  <section class="post" id="history">
+    <h2>Where I have done it</h2>
+    <div class="roles-wrap">
+      <ol class="roles">
+      <li class="is-now">
+        <span class="yr num">2026</span>
+        <span class="org">Pixel Shark<span class="now">Current</span></span>
+        <span class="role">Project Manager, D2C Performance Marketing</span>
+        <span class="detail">The coordination point for assigned D2C clients. Campaign delivery with the
+          performance marketing team, weekly client calls, reporting, invoicing and account health.</span>
+      </li>
+      <li>
+        <span class="yr num">2025-26</span>
+        <span class="org">Onavid</span>
+        <span class="role">Social Media Manager and Content Strategist &middot; Remote</span>
+        <span class="detail">Social media marketing and strategy for the agency's D2C fashion and lifestyle roster.</span>
+      </li>
+      <li>
+        <span class="yr num">2025</span>
+        <span class="org">Digital Friend</span>
+        <span class="role">Social Media Manager &middot; Ahmedabad</span>
+      </li>
+      <li>
+        <span class="yr num">2025</span>
+        <span class="org">Trunk Media</span>
+        <span class="role">Social Media Manager &middot; Ahmedabad</span>
+        <span class="detail">Content creation and curation for the agency's clients, posting daily across
+          Facebook, Instagram and LinkedIn.</span>
+      </li>
+      <li>
+        <span class="yr num">2024</span>
+        <span class="org">creativcells</span>
+        <span class="role">Social Media and Project Manager &middot; Remote</span>
+      </li>
+      <li>
+        <span class="yr num">2024</span>
+        <span class="org">Mylstone Digital Services</span>
+        <span class="role">Digital Marketing Executive</span>
+        <span class="detail">Content ideas to grow and engage target audiences, and the daily calendars behind them.</span>
+      </li>
+      <li>
+        <span class="yr num">2023</span>
+        <span class="org">MICA | The School of Ideas</span>
+        <span class="role">Postgraduate study, marketing &middot; Ahmedabad</span>
+      </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4 . accounts ------------------------------------------------ -->
+  <section class="post" id="work">
+    <div class="roster-head">
+      <h2>The accounts</h2>
+      <p class="lede">Every one is live. Open them and judge the work directly.</p>
+    </div>
+
+    <ul class="mosaic" id="mosaic">
+
+      <li class="w2"><a class="acct f-sotrue" href="https://www.instagram.com/sotrue.in/" target="_blank" rel="noopener">
+        <span class="cat">Skincare</span>
+        <span class="figure num">22.5K</span>
+        <span class="name">Sotrue</span>
+        <span class="meta">@sotrue.in <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li class="w2"><a class="acct f-srivari" href="https://www.instagram.com/srivarifashionjewellery/" target="_blank" rel="noopener">
+        <span class="proof"><img src="assets/srivari-thumb.jpg" width="420" height="473" loading="lazy"
+          alt="The Srivari feed before and after Priyal rebuilt it on a single green and gold template."></span>
+        <span class="cat">Jewellery</span>
+        <span class="name">Srivari Fashion Jewellery</span>
+        <span class="meta">Feed rebuilt on one template <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li class="w2"><a class="acct f-mcl" href="https://www.instagram.com/mclindia/" target="_blank" rel="noopener">
+        <span class="cat">Heavy infrastructure</span>
+        <span class="name">Montecarlo Limited</span>
+        <span class="meta">@mclindia <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li><a class="acct f-alibaug" href="https://www.instagram.com/alibaugresorts.in/" target="_blank" rel="noopener">
+        <span class="cat">Hospitality</span>
+        <span class="name">Alibaug Resorts</span>
+        <span class="meta">@alibaugresorts.in <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li><a class="acct f-walkthetalk light" href="https://www.instagram.com/walkthetalk.studio/" target="_blank" rel="noopener">
+        <span class="cat">Footwear</span>
+        <span class="name">Walk The Talk Studio</span>
+        <span class="meta">@walkthetalk.studio <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li class="w2"><a class="acct f-indianchai light" href="https://www.instagram.com/theindianchai/" target="_blank" rel="noopener">
+        <span class="cat">Food and drink</span>
+        <span class="name">The Indian Chai</span>
+        <span class="meta">@theindianchai <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li><a class="acct f-diamour" href="https://www.instagram.com/diamourjewellery/" target="_blank" rel="noopener">
+        <span class="cat">Jewellery</span>
+        <span class="name">Diamour Jewellery</span>
+        <span class="meta">@diamourjewellery <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li><a class="acct f-crystalicious light" href="https://www.instagram.com/crystalicious0059/" target="_blank" rel="noopener">
+        <span class="cat">Jewellery</span>
+        <span class="name">Crystalicious</span>
+        <span class="meta">@crystalicious0059 <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li class="w2"><a class="acct f-slaystay" href="https://www.instagram.com/slaystay.com_/" target="_blank" rel="noopener">
+        <span class="cat">Fashion</span>
+        <span class="figure num">12.3K</span>
+        <span class="name">SlayStay</span>
+        <span class="meta">@slaystay.com_ <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li><a class="acct f-numaani" href="https://www.instagram.com/labelnumaani/" target="_blank" rel="noopener">
+        <span class="cat">Fashion</span>
+        <span class="name">Label Numaani</span>
+        <span class="meta">@labelnumaani <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+
+      <li><a class="acct f-grandmercure light" href="https://www.instagram.com/grandmercure_ahmedabad/" target="_blank" rel="noopener">
+        <span class="cat">Hospitality</span>
+        <span class="name">Grand Mercure Ahmedabad</span>
+        <span class="meta">@grandmercure_ahmedabad <svg aria-hidden="true"><use href="#i-out"/></svg></span>
+      </a></li>
+    </ul>
+
+    <p class="roster-note">Delivered in-house and through the agencies above, and more that are not listed here.
+      Follower counts are the accounts&rsquo; own audience size, not a growth claim.</p>
+  </section>
+
+  <!-- 5 . connect ------------------------------------------------- -->
+  <section class="post contact" id="contact">
+    <h2>Tell me what the account needs to do.</h2>
+    <p class="lede">Freelance projects and full-time roles both welcome. Ahmedabad, hybrid or remote.</p>
+    <div class="contact-actions">
+      <a class="btn" href="mailto:banthiapriyal2310@gmail.com?subject=Social%20media%20project">
+        <svg aria-hidden="true"><use href="#i-mail"/></svg>banthiapriyal2310@gmail.com
+      </a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/priyalbanthia/" target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-li"/></svg>LinkedIn
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>Priyal Banthia, social media manager. Ahmedabad, India.</span>
+  <a href="https://www.linkedin.com/in/priyalbanthia/" target="_blank" rel="noopener">linkedin.com/in/priyalbanthia</a>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* the boot screen hides itself in CSS; this only takes the node out of the
+     tree afterwards, and is a backstop if CSS animations never run. */
+  const boot = document.querySelector(".boot");
+  if (boot) setTimeout(() => boot.remove(), reduced.matches ? 0 : 2600);
+
+  /* the masthead earns its rule only once the page has moved */
+  const mast = document.getElementById("masthead");
+  const sentinel = document.createElement("div");
+  sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px";
+  document.body.prepend(sentinel);
+  new IntersectionObserver(
+    ([e]) => mast.toggleAttribute("data-stuck", !e.isIntersecting)
+  ).observe(sentinel);
+
+  /* the one authored moment: the mosaic settles in on first view.
+     tiles are visible in CSS; this adds the pre-state, so no-JS hides nothing. */
+  const mosaic = document.getElementById("mosaic");
+  if (mosaic && !reduced.matches) {
+    [...mosaic.querySelectorAll(".acct")].forEach((t, i) => t.style.setProperty("--i", i));
+    mosaic.classList.add("will-reveal");
+
+    /* the mosaic is the whole argument of the page, so it must never be able to
+       sit at opacity 0. whatever happens to the observer, this releases it. */
+    const release = () => mosaic.classList.remove("will-reveal", "in");
+    const failsafe = setTimeout(release, 2500);
+
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        mosaic.classList.add("in");
+        io.disconnect();
+        clearTimeout(failsafe);
+        setTimeout(release, 1500);   /* let go so it can never replay */
+      }
+    }, { threshold: 0.1 });
+    io.observe(mosaic);
+  }
+})();
+</script>
+</body>
+</html>

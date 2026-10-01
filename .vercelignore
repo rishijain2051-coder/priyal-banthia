@@ -1,0 +1,8 @@
+# source material kept for future edits, not part of the site
+assets/_source/
+
+# project records, not shipped
+.impeccable/
+.claude/
+PRODUCT.md
+DESIGN.md
