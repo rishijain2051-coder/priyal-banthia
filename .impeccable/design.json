@@ -245,7 +245,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "The hero headline only. Its measure is the grid column, with no character cap. At its shipped length, \"Eleven brands. One manager.\", it sets on one line at desktop and two on a phone; the long sentence headline it replaced is gone."
+        "purpose": "The hero headline only. Its measure is the grid column, with no character cap. At its shipped length, \"25+ brands. One manager.\", it sets on one line at desktop and two on a phone; the long sentence headline it replaced is gone."
       },
       "headline": {
         "displayName": "Headline",

@@ -31,7 +31,8 @@ which buries the strongest evidence (the real accounts) behind six pages of miss
 
 ## Positioning
 
-She has personally run social for roughly eleven named, publicly verifiable brand accounts across five categories,
+She reports having worked with 25+ clients. Eleven of those are named, publicly verifiable brand accounts across
+seven categories,
 and she has since moved up from executing social media into coordinating D2C performance marketing accounts. The
 combination a neighbouring freelancer cannot truthfully copy: MICA training, a real multi-category brand roster with
 live links, and operational project-management experience on paid D2C accounts rather than organic posting alone.
@@ -66,6 +67,7 @@ role.
 - Her own description of herself, used close to verbatim: "a Social Media Manager that is passionate about helping
   busy brands and business owners create and maintain an online presence through social profiles."
 - Credential: MICA | The School of Ideas.
+- Working address is priyalwork2411@gmail.com, given by her directly and superseding the one on her resume.
 - Contact surface, per the user: email and LinkedIn only. Phone number is deliberately withheld from the public page
   even though it appears on her resume.
 - Her LinkedIn headline contains a typo ("Content Stragegy"). Corrected wherever quoted.
@@ -79,8 +81,12 @@ Real, in `assets/`, extracted from her own PDF deck:
   profile showing 22.5K followers and 674 posts. The single strongest piece of proof she has.
 - `srivari-feed.jpg` - the Srivari grid in situ on a phone.
 
-Verifiable facts: 11 named brand accounts with live Instagram links; employers Pixel Shark, Onavid, Digital Friend,
+Verifiable facts: 11 named brand accounts with live Instagram links, out of the 25+ clients she reports;
+employers Pixel Shark, Onavid, Digital Friend,
 Trunk Media, creativcells, Mylstone Digital Services; MICA; Sotrue 22.5K/674; her LinkedIn 3,186 followers.
+
+The 25+ figure is her own count and is published as such; the fourteen-plus unnamed ones are not listed because no
+public account was supplied for them, so the page states the total and shows the eleven it can evidence.
 
 Absent and not to be fabricated: follower growth for 10 of 11 brands, engagement rates, ad spend, ROAS, revenue
 attribution, client testimonials, campaign dates. No testimonial exists. No case study beyond Srivari exists.

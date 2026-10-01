@@ -273,7 +273,7 @@ This family, and every secondary text colour derived from it, is deliberately ex
 **Character:** Bricolage's slightly irregular grotesque carries every heading with tight negative tracking, which keeps a one-page portfolio from reading corporate; Instrument Sans underneath is plain and high-legibility and stays out of the way. Body text runs with the `ss01` and `cv05` stylistic sets on. No serif anywhere, and no system display face.
 
 ### Hierarchy
-- **Display** (`{typography.display}`): The hero headline only. Its measure is the grid column, with no character cap. At its shipped length — "Eleven brands. One manager." — it sets on one line at desktop and two on a phone; the long sentence headline it replaced is gone.
+- **Display** (`{typography.display}`): The hero headline only. Its measure is the grid column, with no character cap. At its shipped length — "25+ brands. One manager." — it sets on one line at desktop and two on a phone; the long sentence headline it replaced is gone.
 - **Headline** (`{typography.headline}`): Section titles.
 - **Headline Closing** (`{typography.headline-closing}`): The contact section's title only, one step larger because it is the page's final ask.
 - **Title** (`{typography.title}`): The employer name on each timeline row — the largest display text inside a section, because that is the word both audiences scan for.

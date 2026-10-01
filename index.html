@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Priyal Banthia, Social Media Manager</title>
-<meta name="description" content="Social media manager in Ahmedabad. Eleven brand accounts across jewellery, skincare, hospitality, fashion, food and heavy infrastructure. Open to freelance projects and full-time roles.">
+<meta name="description" content="Social media manager in Ahmedabad. 25+ brands across jewellery, skincare, hospitality, fashion, food and heavy infrastructure. Open to freelance projects and full-time roles.">
 
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://priyalbanthia.vercel.app/">
 <meta property="og:site_name" content="Priyal Banthia">
 <meta property="og:title" content="Priyal Banthia, Social Media Manager">
-<meta property="og:description" content="Eleven brand accounts, from a diamond jewellery label to a highway and infrastructure contractor.">
+<meta property="og:description" content="25+ brands, from a diamond jewellery label to a highway and infrastructure contractor.">
 <!-- absolute, because a relative og:image does not resolve for crawlers -->
 <meta property="og:image" content="https://priyalbanthia.vercel.app/assets/og-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Priyal Banthia, social media manager, beside the words Eleven brands. One manager.">
+<meta property="og:image:alt" content="Priyal Banthia, social media manager, beside the words 25+ brands. One manager.">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="canonical" href="https://priyalbanthia.vercel.app/">
@@ -452,8 +452,14 @@ footer a:hover{ color:var(--ink) }
 .boot-b{ bottom:0; animation:boot-part-dn .82s cubic-bezier(.16,1,.3,1) 1.72s both }
 .boot-t .boot-stage{ top:0 }
 .boot-b .boot-stage{ bottom:0 }
+/* 200% of the half, which is exactly the overlay's own height. 100vh is the
+   LARGE viewport on iOS while the overlay is sized to the visual viewport, so
+   the two disagreed by the height of the browser chrome, the stage's centre
+   missed the screen middle, and the name fell into the clipped gap between the
+   halves and never appeared on a phone. a percentage of the parent cannot
+   drift from the parent. */
 .boot-stage{
-  position:absolute; left:0; right:0; height:100vh;
+  position:absolute; left:0; right:0; height:200%;
   display:grid; place-content:center; justify-items:center;
 }
 /* the four marks, stacked then parted two up and two down */
@@ -547,7 +553,7 @@ footer a:hover{ color:var(--ink) }
   <!-- 1 . hero ---------------------------------------------------- -->
   <section class="post hero">
     <div>
-      <h1>Eleven brands. One manager.</h1>
+      <h1>25+ brands. One manager.</h1>
       <p>I&rsquo;m Priyal Banthia, a social media manager in Ahmedabad. Daily calendars, content
         strategy, Meta Ads.</p>
       <div class="hero-actions">
@@ -563,9 +569,9 @@ footer a:hover{ color:var(--ink) }
 
   <section class="band" aria-label="At a glance">
     <dl>
-      <div><dt class="num">11</dt><dd>brand accounts personally managed</dd></div>
+      <div><dt class="num">25+</dt><dd>brands worked with</dd></div>
       <div><dt class="num">7</dt><dd>categories, from D2C to infrastructure</dd></div>
-      <div><dt class="num">2.5K-22.5K</dt><dd>follower range across those accounts</dd></div>
+      <div><dt class="num">11</dt><dd>listed here, every one live</dd></div>
       <div><dt>MICA</dt><dd>The School of Ideas, Ahmedabad</dd></div>
     </dl>
   </section>
@@ -734,8 +740,9 @@ footer a:hover{ color:var(--ink) }
       </a></li>
     </ul>
 
-    <p class="roster-note">Delivered in-house and through the agencies above, and more that are not listed here.
-      Follower counts are the accounts&rsquo; own audience size, not a growth claim.</p>
+    <p class="roster-note">Eleven of the 25+ brands she has worked with: the ones whose accounts are public,
+      delivered in-house and through the agencies above. Followers range from 2.5K to 22.5K across them.
+      Counts are each account&rsquo;s own audience size, not a growth claim.</p>
   </section>
 
   <!-- 5 . connect ------------------------------------------------- -->
@@ -743,8 +750,8 @@ footer a:hover{ color:var(--ink) }
     <h2>Tell me what the account needs to do.</h2>
     <p class="lede">Freelance projects and full-time roles both welcome. Ahmedabad, hybrid or remote.</p>
     <div class="contact-actions">
-      <a class="btn" href="mailto:banthiapriyal2310@gmail.com?subject=Social%20media%20project">
-        <svg aria-hidden="true"><use href="#i-mail"/></svg>banthiapriyal2310@gmail.com
+      <a class="btn" href="mailto:priyalwork2411@gmail.com?subject=Social%20media%20project">
+        <svg aria-hidden="true"><use href="#i-mail"/></svg>priyalwork2411@gmail.com
       </a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/priyalbanthia/" target="_blank" rel="noopener">
         <svg aria-hidden="true"><use href="#i-li"/></svg>LinkedIn
