@@ -47,7 +47,8 @@
           "#D1C3BF",
           "#EDE5E7",
           "#F9F5F4"
-        ]
+        ],
+        "note": "Declared on :root and currently unreferenced. It backed the old portrait frame while the image loaded; the framed mount that replaced it is filled with portrait-field. Recorded as a loose end the build carries, not a live role."
       },
       "ink": {
         "role": "neutral",
@@ -108,6 +109,22 @@
           "#E8DEE0",
           "#F7F3F2"
         ]
+      },
+      "portrait-field": {
+        "role": "neutral",
+        "displayName": "Portrait Field",
+        "canonical": "#CBD8CE",
+        "tonalRamp": [
+          "#161C18",
+          "#27312A",
+          "#3A483E",
+          "#556657",
+          "#74876F",
+          "#9EB0A0",
+          "#CBD8CE",
+          "#EAF0EC"
+        ],
+        "note": "The hero mount's fill. Same sage value as field-grandmercure but its own token, because the mount is a surface role and the field is a brand: the value is reused, the role is not inherited. Mid-light by correction - a dark mount merged with her near-black hair and lost her outline, and a paper-coloured one sat too close to the page in value to separate her from it."
       },
       "accent": {
         "role": "primary",
@@ -228,7 +245,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "The hero headline only. Its measure is the grid column, with no character cap."
+        "purpose": "The hero headline only. Its measure is the grid column, with no character cap. At its shipped length, \"Eleven brands. One manager.\", it sets on one line at desktop and two on a phone; the long sentence headline it replaced is gone."
       },
       "headline": {
         "displayName": "Headline",
@@ -373,11 +390,6 @@
         "purpose": "Unconditional release timer; the mosaic must never be able to sit at opacity 0."
       },
       {
-        "name": "hero-cycle",
-        "value": "30s linear infinite",
-        "purpose": "Each header grid cell cycles three account fields; animation-delay calc(var(--a) * -3.1s) staggers the nine cells out of step. animation:none under reduced motion."
-      },
-      {
         "name": "loader-spread",
         "value": "0.86s",
         "purpose": "The four platform marks scale from .62 and unrotate as they part two up and two down, staggered .07s by index."
@@ -464,7 +476,7 @@
         "field-indianchai"
       ],
       "paletteExempt": true,
-      "why": "Each field belongs to one real brand, so the set is content, not theme. Secondary text on a field is computed from the field at paint time with color-mix(in oklab, var(--fg) N%, var(--field)) - 11 fields x 2 roles = 22 values that no enumerated palette can contain. Examples: rgb(203,200,200) on Sotrue's category label, rgb(202,209,205) on Srivari's, rgb(81,64,65) on light Walk The Talk, rgb(79,55,39) on light Indian Chai. A colour audit reports these as drift; they are not drift, and they are never pinned to literals or flattened to grey. Declared once on :root because duplicating them let a consumer go stale. Any surface that cycles them takes its own first field as its static base, never a shared one, so the set still reads as a set with animation off.",
+      "why": "Each field belongs to one real brand, so the set is content, not theme. Secondary text on a field is computed from the field at paint time with color-mix(in oklab, var(--fg) N%, var(--field)) - 11 fields x 2 roles = 22 values that no enumerated palette can contain. Examples: rgb(203,200,200) on Sotrue's category label, rgb(202,209,205) on Srivari's, rgb(81,64,65) on light Walk The Talk, rgb(79,55,39) on light Indian Chai. A colour audit reports these as drift; they are not drift, and they are never pinned to literals or flattened to grey. Declared once on :root because duplicating them let a consumer go stale.",
       "lightModifier": {
         "fields": [
           "field-walkthetalk",
@@ -485,7 +497,6 @@
       "declaredAs": ":root custom properties --f-sotrue .. --f-grandmercure",
       "consumedBy": [
         "mosaic tiles (.f-* classes)",
-        "header grid cells (--c1/--c2/--c3)",
         "loader"
       ]
     },
@@ -518,12 +529,12 @@
       "css": ".ds-btn-ghost { display:inline-flex; align-items:center; gap:.5rem; padding:.72rem 1.15rem; border:1px solid var(--rule,#DED2D6); border-radius:10px; background:transparent; color:var(--ink,#221B1D); font:500 .9375rem/1 \"Instrument Sans\", ui-sans-serif, system-ui, sans-serif; text-decoration:none; white-space:nowrap; transition:transform .18s cubic-bezier(.16,1,.3,1), background .18s cubic-bezier(.16,1,.3,1), border-color .18s cubic-bezier(.16,1,.3,1); } .ds-btn-ghost:hover { background:var(--paper-card,#FFFBFC); border-color:var(--ink,#221B1D); box-shadow:none; } .ds-btn-ghost:focus-visible { outline:2px solid var(--accent,#9E3B54); outline-offset:3px; } .ds-btn-ghost:active { transform:translateY(1px); }"
     },
     {
-      "name": "Header Grid",
+      "name": "Framed Portrait Mount",
       "kind": "custom",
-      "refersTo": "hero-cell",
-      "description": "The page opens on the thing she makes: a 3x3 of account fields with her cut out of her own photograph standing in front of it, breaking the frame. Each cell cycles three of the eleven fields out of step, and each cell's own first field is its base so the grid still reads as a range with animation off.",
-      "html": "<div class=\"ds-portrait\"><div class=\"ds-hero-grid\" aria-hidden=\"true\"><i style=\"--a:0;--c1:#111111;--c2:#7C2E13;--c3:#DED3EE\"></i><i style=\"--a:1;--c1:#0E3D27;--c2:#E4A64B;--c3:#4A1B3D\"></i><i style=\"--a:2;--c1:#313B41;--c2:#EFD6CE;--c3:#2A1C6B\"></i><i style=\"--a:3;--c1:#123E63;--c2:#CBD8CE;--c3:#111111\"></i><i style=\"--a:4;--c1:#E4A64B;--c2:#4A1B3D;--c3:#0E3D27\"></i><i style=\"--a:5;--c1:#DED3EE;--c2:#313B41;--c3:#7C2E13\"></i><i style=\"--a:6;--c1:#EFD6CE;--c2:#2A1C6B;--c3:#123E63\"></i><i style=\"--a:7;--c1:#4A1B3D;--c2:#111111;--c3:#CBD8CE\"></i><i style=\"--a:8;--c1:#CBD8CE;--c2:#0E3D27;--c3:#E4A64B\"></i></div><img class=\"ds-hero-cut\" src=\"assets/priyal-cutout.png\" width=\"330\" height=\"274\" alt=\"Priyal Banthia.\"></div>",
-      "css": ".ds-portrait { position:relative; width:min(13rem,62vw); } @media (min-width:52rem) { .ds-portrait { width:100%; max-width:21rem; } } .ds-hero-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; aspect-ratio:1/1; } .ds-hero-grid i { border-radius:6px; background:var(--c1); animation:ds-hero-cell 30s linear infinite; animation-delay:calc(var(--a) * -3.1s); } @keyframes ds-hero-cell { 0%,27% { background-color:var(--c1) } 33%,60% { background-color:var(--c2) } 66%,94% { background-color:var(--c3) } 100% { background-color:var(--c1) } } .ds-hero-cut { position:absolute; z-index:1; pointer-events:none; left:-9%; width:118%; max-width:none; bottom:-5%; height:auto; display:block; } @media (prefers-reduced-motion: reduce) { .ds-hero-grid i { animation:none } }"
+      "refersTo": "portrait-mount",
+      "description": "One mounted panel where the 3x3 cycling grid used to be: a square sage mount with a deliberately visible 2px ink frame, holding her cutout contained inside it. No shadow - the frame and the tonal step do the separating.",
+      "html": "<div class=\"ds-portrait\"><img class=\"ds-hero-cut\" src=\"assets/priyal-cutout.png\" width=\"330\" height=\"274\" alt=\"Priyal Banthia.\" fetchpriority=\"high\"></div>",
+      "css": ".ds-portrait { position:relative; order:-1; justify-self:start; width:min(14rem,64vw); aspect-ratio:1/1; overflow:hidden; border-radius:10px; border:2px solid var(--ink,#221B1D); background:var(--portrait-field,#CBD8CE); } @media (min-width:52rem) { .ds-portrait { order:0; justify-self:end; width:100%; max-width:21rem; } } .ds-hero-cut { position:absolute; z-index:1; pointer-events:none; left:0; width:100%; max-width:none; bottom:0; height:auto; display:block; }"
     },
     {
       "name": "Account Tile",
@@ -584,14 +595,14 @@
   ],
   "narrative": {
     "northStar": "Eleven Worlds, One Left Edge",
-    "overview": "The page makes a single argument: one manager has run brands that share no visual language at all, from a black skincare feed to a highway contractor. So the system is built as a quiet stage carrying loud evidence. The stage is rose-warm paper, hairlines, one accent, and a left edge that never moves from the masthead wordmark to the footer line. The evidence is a mosaic of eleven coloured tiles, each wearing its own brand's colour, and a header built from the same eleven: a 3x3 grid of account fields with her cut out of her own photograph standing in front of it. Her medium is the grid, so the page opens on one. The restraint of the stage is what lets the range of the tiles read as range rather than noise.\n\nDensity is editorial rather than promotional: facts sit in a run of 1px rules instead of big-number cards, roles sit on a marker spine instead of in panels, and nothing is boxed unless it is a clickable object. Surfaces are flat at rest: there is no at-rest atmospheric shadow anywhere in the build, and depth is carried by hairlines, by the tonal step between paper and card-paper, and by colour. Everything that lifts earns it by being touched. The page is light-locked and the light stage is load-bearing, because the dark account fields only read as objects sitting on a page if the page under them is paper.\n\nThe palette leans rose on purpose: the warm neutral is pulled toward red-violet rather than yellow, and the accent is a muted wine. The beige / brass / espresso portfolio family was rejected. The hue test is mechanical and the trap is real - an earlier shipped ramp read as peach because its green channel sat above its blue.\n\nThe world was chosen by interview, not by roll. Three materially different directions were put to the user with their trade-offs stated inside each option; the user chose \"The Feed\" and a light warm neutral over a recommended dark stage, then redirected the section order and asked for the entrance overlay mid-build. There is no seed key because no script roll ran. The light lock is the user's own decision against the recommendation, not a default.",
+    "overview": "The page makes a single argument: one manager has run brands that share no visual language at all, from a black skincare feed to a highway contractor. So the system is built as a quiet stage carrying loud evidence. The stage is rose-warm paper, hairlines, one accent, and a left edge that never moves from the masthead wordmark to the footer line. The evidence is a mosaic of eleven coloured tiles, each wearing its own brand's colour. The header is deliberately quiet above it: one square sage mount with a visible dark frame, holding her cut out of her own photograph. An earlier build opened on the same eleven fields as a 3x3 cycling grid behind the headline; eleven shifting colours competed with the section that already exists to carry the range, and the range won. The restraint of the stage is what lets the range of the tiles read as range rather than noise - and the header is part of the stage, not part of the evidence.\n\nDensity is editorial rather than promotional: facts sit in a run of 1px rules instead of big-number cards, roles sit on a marker spine instead of in panels, and nothing is boxed unless it is a clickable object. Surfaces are flat at rest: there is no at-rest atmospheric shadow anywhere in the build, and depth is carried by hairlines, by the tonal step between paper and card-paper, and by colour. Everything that lifts earns it by being touched. The page is light-locked and the light stage is load-bearing, because the dark account fields only read as objects sitting on a page if the page under them is paper.\n\nThe palette leans rose on purpose: the warm neutral is pulled toward red-violet rather than yellow, and the accent is a muted wine. The beige / brass / espresso portfolio family was rejected. The hue test is mechanical and the trap is real - an earlier shipped ramp read as peach because its green channel sat above its blue.\n\nThe world was chosen by interview, not by roll. Three materially different directions were put to the user with their trade-offs stated inside each option; the user chose \"The Feed\" and a light warm neutral over a recommended dark stage, then redirected the section order and asked for the entrance overlay mid-build. There is no seed key because no script roll ran. The light lock is the user's own decision against the recommendation, not a default.",
     "keyCharacteristics": [
       "Rose-warm paper stage, never yellow-beige, never dark",
       "One accent (#9E3B54) whose visible home is the primary action: it fills the primary button at rest, and also carries focus, caret, selection and the current-role marker",
       "One left edge for every section, one reading measure inside it",
-      "A single 10px radius for anything interactive or tiled, 6px for the header grid cells; no pills",
+      "A single 10px radius for anything interactive, tiled or mounted; no pills",
       "Eleven per-account colour fields treated as content, not theme",
-      "Hairlines, markers and a calendar grid instead of cards; flat until touched, with no at-rest shadow",
+      "Hairlines, markers, a calendar grid and one framed mount instead of cards; flat until touched, with no at-rest shadow",
       "Browser chrome (selection, caret, scrollbar, focus ring) themed from the palette",
       "Icons authored inline at one stroke weight; no icon library, no emoji"
     ],
@@ -608,7 +619,7 @@
       },
       {
         "name": "The Field Is Content Rule",
-        "body": "The eleven --field values are content tokens, not theme tokens. They exist because the brands they stand for exist. Never recolour UI from a field, never add a twelfth field without a twelfth account, and never choose a field for compositional balance alone.",
+        "body": "The eleven --field values are content tokens, not theme tokens. They exist because the brands they stand for exist. Never recolour UI from a field, never add a twelfth field without a twelfth account, and never choose a field for compositional balance alone. A surface that wants a field's value declares its own token for it, as portrait-field does: a shared hex is not a shared role, and the field stays content.",
         "section": "colors"
       },
       {
@@ -668,7 +679,7 @@
       },
       {
         "name": "The Flat-Until-Touched Rule",
-        "body": "Shadows are a response to state, not decoration. If an element cannot be hovered or pressed it carries no atmospheric shadow, and the system now has no exception: a surface that needs to separate from the page uses a hairline and a tonal step, as the calendar entries do.",
+        "body": "Shadows are a response to state, not decoration. If an element cannot be hovered or pressed it carries no atmospheric shadow, and the system has no exception: a surface that needs to separate from the page uses a border and a tonal step, as the calendar entries do with a hairline and the hero mount does with its 2px frame. The mount is the test case - a framed panel was the alternative to giving it a shadow, and the frame won.",
         "section": "elevation"
       },
       {
@@ -678,7 +689,12 @@
       },
       {
         "name": "The Single Radius Rule",
-        "body": "10px is the radius. A new interactive surface or tile uses 10px and does not introduce a new value. 6px belongs to the header grid cells, 5px to chip-scale objects, 2px to focus shapes, 50% to the timeline marker.",
+        "body": "10px is the radius. A new interactive, tiled or mounted surface uses 10px and does not introduce a new value. 5px belongs to chip-scale objects, 2px to focus shapes, 50% to the timeline marker, and 99px to the scrollbar thumb alone, as browser chrome. The 6px header-grid cell left with the grid; the build has no 6px radius any more.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Contained Figure Rule",
+        "body": "A figure inside a framed mount stays inside the frame. The cutout ran at width: 118% with a -9% offset while the header had no visible edge, and that worked; once the mount carried a 2px frame, half of her on the mount and half on the paper read as a mistake rather than as a device. It now sits at left: 0; width: 100%; bottom: 0 - 100% rather than 106% specifically so there is headroom above her hair. Break a frame only where there is no frame.",
         "section": "shapes"
       },
       {
@@ -698,13 +714,8 @@
       },
       {
         "name": "The Full Collapse Rule",
-        "body": "prefers-reduced-motion: reduce collapses every transition and animation to .01ms, removes the loader outright, stops the header grid's cycle with animation:none so it rests on nine different fields, forces the mosaic to its settled state, disables the tile hover lift and turns smooth scrolling off.",
+        "body": "prefers-reduced-motion: reduce collapses every transition and animation to .01ms, removes the loader outright, forces the mosaic to its settled state, disables the tile hover lift and turns smooth scrolling off. The reveal is never even armed when reduced motion is set. With the cycling header gone there is nothing left in the build whose colour depends on an animation running.",
         "section": "components"
-      },
-      {
-        "name": "The Own Base Colour Rule",
-        "body": "Any surface that cycles through the fields takes its own first field as its static base, never a shared one. The header grid's nine cells each sit on their own --c1: based on a single shared field the whole grid rendered as one colour with animation off, so every reduced-motion visitor lost the range the grid exists to show. An animated set must still read as a set when the animation never runs.",
-        "section": "colors"
       },
       {
         "name": "The No Ch-Cap On Display Rule",
@@ -727,7 +738,7 @@
       "Do let a block exceed the reading measure only when every text run inside it carries its own ch cap, and send it to the one 60rem secondary width.",
       "Do check a candidate neutral channel by channel: blue at or above green, or it is not rose-warm. The shipped paper is rgb(246,241,242).",
       "Do keep the accent visible on the primary action; a palette whose one accent survives only in a badge is failing the One Accent Rule, not honouring it.",
-      "Do use 10px for any new interactive or tiled surface, and 6px for a small grid cell.",
+      "Do use 10px for any new interactive, tiled or mounted surface; the build has one radius.",
       "Do derive secondary text on a coloured field with color-mix(in oklab, var(--fg) N%, var(--field)), with an rgba() fallback declared first, and expect a colour audit to flag the 22 computed results as drift. They are content, not palette.",
       "Do separate runs of facts with 1px hairlines, a spine and markers, or a calendar grid, instead of wrapping them in cards.",
       "Do tint shadows with ink (rgba(34,27,29,...)) or the accent, and keep atmospheric shadows tied to hover.",
@@ -735,15 +746,15 @@
       "Do set font-variant-numeric: tabular-nums on every figure, year and count.",
       "Do theme browser surfaces from the palette: ::selection, caret-color, scrollbar track and thumb, a 2px accent :focus-visible ring at 3px offset, and .22em underline offset on links.",
       "Do author icons as inline SVG in the single <defs> sprite at stroke-width 1.6, as a <symbol> with an explicit viewBox, and mark every consuming <svg> aria-hidden=\"true\".",
-      "Do keep every text colour at AA or better; the measured floor in this build is 4.98:1 on the lightest account tile.",
+      "Do keep every text colour at AA or better; the measured floor in this build is 5.0:1 on the lightest account tile.",
       "Do make any full-screen or reveal state clear itself without JavaScript, with a timer as a backstop only.",
       "Do send any block that earns the own-cap exception to the single 60rem secondary width.",
       "Do keep the page's own labels consistent with the counts it claims: the eleven tile categories resolve to the seven the scale band states.",
       "Do keep raster provenance recorded, never display a raster above its native size, and keep unreferenced source images out of the upload.",
-      "Do give a surface that must separate from the page a hairline and a tonal step rather than an at-rest shadow.",
-      "Do give any set that cycles colours its own first value as its static base, so it still reads as a set with animation off.",
+      "Do give a surface that must separate from the page a border and a tonal step rather than an at-rest shadow - a 1px hairline as the calendar entries do, or the one 2px frame as the hero mount does.",
       "Do prefer CSS for a device that labels or tracks a row; a scripted one can desynchronise from the row it names.",
-      "Do write two literal keyframe sets for two directions rather than parameterising one with a custom property."
+      "Do write two literal keyframe sets for two directions rather than parameterising one with a custom property.",
+      "Do let a figure inside a framed mount stay inside the frame, and give a surface that borrows a field's value its own token."
     ],
     "donts": [
       "Don't add a dark theme, a prefers-color-scheme branch, or a theme toggle. The page is light-locked by decision.",
@@ -753,14 +764,14 @@
       "Don't treat the eleven --field colours as theme colours, or add one without an account behind it.",
       "Don't fill the field set with eleven dark values of similar lightness; keep four light fields in the mix with the .light treatment, keep at least one of them in a double-width cell, and don't ship two fields that read as the same colour.",
       "Don't use grey, or a blanket opacity, for secondary text on a coloured field, and don't replace a derived secondary with a literal to silence an audit.",
-      "Don't make anything in the page content fully rounded, and don't add a radius value beyond 2 / 5 / 6 / 10px and the one 7px circle.",
+      "Don't make anything in the page content fully rounded, and don't add a radius value beyond 2 / 5 / 10px, the one 7px circle and the scrollbar thumb.",
       "Don't put an at-rest atmospheric shadow on anything; the build has none.",
       "Don't add another blocking entrance or hold-screen to a new surface, and don't let any reveal or overlay state persist where it could leave content at opacity 0.",
       "Don't use an uppercase letterspaced label as a kicker above a heading; that type role belongs inside tiles and chips only.",
       "Don't use emoji, an icon font, or an icon library in place of the authored sprite, and don't author a sprite entry as a <g> - it cannot establish a viewport and the art will clip.",
       "Don't put a ch-based cap on display type whose line count matters - the cap moves when the font does.",
       "Don't draw ruled columns behind a grid of cards. They were built here as a repeating-linear-gradient for the calendar and removed: they sat mostly hidden behind the entries, earned nothing, and read as decorative stripes.",
-      "Don't base a cycling set of colour cells on one shared field; with animation off the whole set collapses to a single colour.",
+      "Don't put a slow colour cycle behind the headline, and don't let the header compete with the section that already carries the range.",
       "Don't do custom-property arithmetic inside a keyframe transform."
     ]
   }

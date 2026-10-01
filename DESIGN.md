@@ -9,6 +9,7 @@ colors:
   ink-soft: "#6B5D60"
   rule: "#DED2D6"
   rule-soft: "#E8DEE0"
+  portrait-field: "#CBD8CE"
   accent: "#9E3B54"
   accent-sunk: "#7E2C42"
   field-default: "#241F1E"
@@ -132,7 +133,6 @@ typography:
 rounded:
   focus: "2px"
   micro: "5px"
-  cell: "6px"
   base: "10px"
   marker: "50%"
   scroll-thumb: "99px"
@@ -191,10 +191,10 @@ components:
     textColor: "{colors.ink-soft}"
     height: "4rem"
     padding: "0 clamp(1.25rem, 5vw, 2.5rem)"
-  hero-cell:
-    backgroundColor: "{colors.field-sotrue}"
-    rounded: "{rounded.cell}"
-    size: "1fr"
+  portrait-mount:
+    backgroundColor: "{colors.portrait-field}"
+    rounded: "{rounded.base}"
+    width: "min(14rem, 64vw)"
   calendar-entry:
     backgroundColor: "{colors.paper-card}"
     textColor: "{colors.ink}"
@@ -209,7 +209,7 @@ components:
 
 **Creative North Star: "Eleven Worlds, One Left Edge"**
 
-The page makes a single argument: one manager has run brands that share no visual language at all, from a black skincare feed to a highway contractor. So the system is built as a quiet stage carrying loud evidence. The stage is rose-warm paper, hairlines, one accent, and a left edge that never moves from the masthead wordmark to the footer line. The evidence is a mosaic of eleven coloured tiles, each wearing its own brand's colour, and a header built from the same eleven: a 3×3 grid of account fields with her cut out of her own photograph standing in front of it. Her medium is the grid, so the page opens on one. The restraint of the stage is what lets the range of the tiles read as range rather than noise.
+The page makes a single argument: one manager has run brands that share no visual language at all, from a black skincare feed to a highway contractor. So the system is built as a quiet stage carrying loud evidence. The stage is rose-warm paper, hairlines, one accent, and a left edge that never moves from the masthead wordmark to the footer line. The evidence is a mosaic of eleven coloured tiles, each wearing its own brand's colour. The header is deliberately quiet above it: one square sage mount with a visible dark frame, holding her cut out of her own photograph. An earlier build opened on the same eleven fields as a 3×3 cycling grid behind the headline; eleven shifting colours competed with the section that already exists to carry the range, and the range won. The restraint of the stage is what lets the range of the tiles read as range rather than noise — and the header is part of the stage, not part of the evidence.
 
 Density is editorial rather than promotional: facts sit in a run of 1px rules instead of big-number cards, roles hang off a marker spine under a sticky year, and the services are laid out as a working week. Surfaces are flat at rest: there is no at-rest atmospheric shadow anywhere in the build, and depth is carried by hairlines, by the tonal step between paper and card-paper, and by colour. Everything that lifts earns it by being touched. The page is light-locked — there is no dark theme, no `prefers-color-scheme` branch and no toggle — and the light stage is load-bearing, because the dark account fields only read as objects sitting on a page if the page under them is paper.
 
@@ -221,9 +221,9 @@ The world was chosen by interview, not by roll. Three materially different direc
 - Rose-warm paper stage, never yellow-beige, never dark
 - One accent (`#9E3B54`) whose visible home is the primary action: it fills the primary button at rest, and also carries focus, caret, selection and the current-role marker
 - One left edge for every section, one reading measure inside it
-- A single 10px radius for anything interactive or tiled, 6px for the header grid cells; no pills
+- A single 10px radius for anything interactive, tiled or mounted; no pills
 - Eleven per-account colour fields treated as content, not theme
-- Hairlines, markers and a calendar grid instead of cards; flat until touched, with no at-rest shadow
+- Hairlines, markers, a calendar grid and one framed mount instead of cards; flat until touched, with no at-rest shadow
 - Browser chrome (selection, caret, scrollbar, focus ring) themed from the palette
 - Icons authored inline at one stroke weight; no icon library, no emoji
 
@@ -233,30 +233,29 @@ A warm neutral that leans rose rather than yellow, one wine accent, and eleven p
 
 ### Primary
 - **Wine Accent** (`{colors.accent}`): The page's single voice, and its one visible home is the primary action. It fills the primary button at rest with a `{colors.paper-card}` label (measured 6.38:1), and it also carries the `:focus-visible` ring, the text caret, the `::selection` background, the favicon tile, the current-role marker on the timeline spine, and the status chip's tinted background. It is never a section background and never a body text colour. Measured 5.9:1 on paper.
-- **Wine Deep** (`{colors.accent-sunk}`): The accent's pressed-deeper step. It is the primary button's hover fill and border, and the "Current" chip's label colour, where accent-coloured text at 11px needs the extra depth to clear AA.
+- **Wine Deep** (`{colors.accent-sunk}`): The accent's pressed-deeper step. It is the primary button's hover fill and border, and the "Current" chip's label colour (measured 6.78:1 on its own tint), where accent-coloured text at 11px needs the extra depth to clear AA.
 
 ### Neutral
 - **Rose Paper** (`{colors.paper}`): The page background, the scrollbar track, and the halo punched around each timeline marker so the spine appears to pass behind it.
 - **Card Paper** (`{colors.paper-card}`): Slightly lifted off-white. The primary button's label, the `::selection` foreground, and the ghost button's hover fill.
-- **Sunk Paper** (`{colors.paper-sunk}`): The portrait frame's backing while the image loads.
-- **Ink** (`{colors.ink}`): Body and heading text, and the primary button's rest fill and border. Measured 15.1:1 on paper.
-- **Soft Ink** (`{colors.ink-soft}`): Every piece of secondary text on the paper stage — ledes, service descriptions, years, job titles, timeline detail, roster note, footer, nav links at rest. Measured 5.53:1 on paper.
+- **Sunk Paper** (`{colors.paper-sunk}`): Declared on `:root` and currently unreferenced. It backed the old portrait frame while the image loaded; the mount that replaced it is filled with `{colors.portrait-field}` instead. Recorded as a loose end the build carries, not as a live role.
+- **Portrait Field** (`{colors.portrait-field}`): The hero mount's fill, and the only surface role in the system whose value is shared with an account field. It is the same sage as Grand Mercure's but it is its own token, because the mount is a surface and the field is a brand: the value is reused, the role is not inherited. Mid-light by correction, twice over — her hair is near-black, so a dark mount merged with it and lost her outline, and a paper-coloured mount sat too close to the page in value to separate her from it.
+- **Ink** (`{colors.ink}`): Body and heading text, and the primary button's rest fill and border. Measured 15.12:1 on paper.
+- **Soft Ink** (`{colors.ink-soft}`): Every piece of secondary text on the paper stage — ledes, service descriptions, years, job titles, timeline detail, roster note, footer, nav links at rest. Measured 5.59:1 on paper, and 6.09:1 where it sets as service body on a card.
 - **Rule** (`{colors.rule}`): The structural hairline. The scale band's top and bottom edges, the masthead's rule once scrolled, the scrollbar thumb, the default timeline marker.
 - **Soft Rule** (`{colors.rule-soft}`): The quieter hairline. Section separators, list separators, band cell dividers, footer top edge, and the timeline spine itself.
 
 ### Account Fields
-Eleven named fields (`{colors.field-sotrue}` through `{colors.field-indianchai}`) declared once on `:root` as `--f-*` and read from there by all three surfaces that use them — the mosaic tiles, the header grid and the loader — plus the `{colors.field-default}` fallback declared on the tile itself. They are defined in one place because duplicating them let a consumer go stale. Each belongs to one real brand. Four of the eleven sit lighter than the page and carry `{colors.field-fg-light}` foreground; the other seven carry `{colors.field-fg}`. Grand Mercure is a pale sage (`{colors.field-grandmercure}`) rather than the deep teal it once was, because that teal was a near-twin of Srivari's green and the brand is a hotel, not a jewellery label — two fields that read as one colour cost the set an account's worth of range.
+Eleven named fields (`{colors.field-sotrue}` through `{colors.field-indianchai}`) declared once on `:root` as `--f-*` and read from there by both surfaces that use them — the mosaic tiles and the loader — plus the `{colors.field-default}` fallback declared on the tile itself. They are defined in one place because duplicating them let a consumer go stale. Each belongs to one real brand. Four of the eleven sit lighter than the page and carry `{colors.field-fg-light}` foreground; the other seven carry `{colors.field-fg}`. Grand Mercure is a pale sage (`{colors.field-grandmercure}`) rather than the deep teal it once was, because that teal was a near-twin of Srivari's green and the brand is a hotel, not a jewellery label — two fields that read as one colour cost the set an account's worth of range.
 
-This family, and every secondary text colour derived from it, is deliberately exempt from palette enumeration. Twenty-two derived values exist only at paint time (eleven fields × two roles), for example `rgb(203,200,200)` on Sotrue's category label, `rgb(202,209,205)` on Srivari's, `rgb(81,64,65)` on the light Walk The Talk field and `rgb(79,55,39)` on the light Indian Chai field. A colour audit will report them as drift; they are not drift, and they must not be pinned to literals or flattened to a grey. The loader's four platform marks carry their own brand hexes (`#E4405F`, `#0866FF`, `#0A66C2`, `#0467DF`) and are exempt on the same grounds: they are third-party marks, not palette. The same eleven values, in mosaic order, are the only colour in the entrance overlay. Worst measured contrast across the set is 4.98:1, on the lightest tile.
+This family, and every secondary text colour derived from it, is deliberately exempt from palette enumeration. Twenty-two derived values exist only at paint time (eleven fields × two roles), for example `rgb(203,200,200)` on Sotrue's category label, `rgb(202,209,205)` on Srivari's, `rgb(81,64,65)` on the light Walk The Talk field and `rgb(79,55,39)` on the light Indian Chai field. A colour audit will report them as drift; they are not drift, and they must not be pinned to literals or flattened to a grey. The loader's four platform marks carry their own brand hexes (`#E4405F`, `#0866FF`, `#0A66C2`, `#0467DF`) and are exempt on the same grounds: they are third-party marks, not palette. The same eleven values, in mosaic order, are the only colour in the entrance overlay. Worst measured contrast across the set is 5.0:1, on the lightest tile.
 
 ### Named Rules
 **The Blue Over Green Rule.** Rose-warm means the blue channel sits at or above the green channel in every neutral. The shipped paper measures `rgb(246,241,242)`. A warm neutral whose green exceeds its blue is yellow-beige or peach wearing the rose label, and it passes a visual glance while failing the brief. Check the channels, not the impression.
 
 **The One Accent Rule.** There is exactly one accent, it is used across the whole page rather than per section, and it must actually reach the eye on the primary action rather than surviving only in a badge. A new surface that wants a second accent needs a different argument, not a different colour.
 
-**The Own Base Colour Rule.** Any surface that cycles through the fields takes its own first field as its static base, never a shared one. The header grid's nine cells each sit on their own `--c1`: based on a single shared field the whole grid rendered as one colour with animation off, so every reduced-motion visitor lost the range the grid exists to show. An animated set must still read as a set when the animation never runs.
-
-**The Field Is Content Rule.** The eleven `--field` values are content tokens, not theme tokens. They exist because the brands they stand for exist. Never recolour UI from a field, never add a twelfth field without a twelfth account, and never choose a field for compositional balance alone.
+**The Field Is Content Rule.** The eleven `--field` values are content tokens, not theme tokens. They exist because the brands they stand for exist. Never recolour UI from a field, never add a twelfth field without a twelfth account, and never choose a field for compositional balance alone. A surface that wants a field's value declares its own token for it, as `{colors.portrait-field}` does: a shared hex is not a shared role, and the field stays content.
 
 **The Lightness Range Rule.** The field set ranges across lightness as well as hue, and some fields must sit lighter than the page. Eleven dark fields of similar value collapse into one dark mass and the page loses its argument. A light field flips both the foreground and the direction of its gradient lift.
 
@@ -274,7 +273,7 @@ This family, and every secondary text colour derived from it, is deliberately ex
 **Character:** Bricolage's slightly irregular grotesque carries every heading with tight negative tracking, which keeps a one-page portfolio from reading corporate; Instrument Sans underneath is plain and high-legibility and stays out of the way. Body text runs with the `ss01` and `cv05` stylistic sets on. No serif anywhere, and no system display face.
 
 ### Hierarchy
-- **Display** (`{typography.display}`): The hero headline only. Its measure is the grid column, with no character cap.
+- **Display** (`{typography.display}`): The hero headline only. Its measure is the grid column, with no character cap. At its shipped length — "Eleven brands. One manager." — it sets on one line at desktop and two on a phone; the long sentence headline it replaced is gone.
 - **Headline** (`{typography.headline}`): Section titles.
 - **Headline Closing** (`{typography.headline-closing}`): The contact section's title only, one step larger because it is the page's final ask.
 - **Title** (`{typography.title}`): The employer name on each timeline row — the largest display text inside a section, because that is the word both audiences scan for.
@@ -312,7 +311,7 @@ Two documented exceptions, each earned by the block capping its own inner text i
 
 Sections are separated by a single `{colors.rule-soft}` hairline with `clamp(3rem, 7vw, 4.75rem)` of vertical padding; the first section has no top rule. Blocks inside a section stack at `1.5rem`.
 
-Responsive behaviour is a handful of real breakpoints rather than a scale: the hero becomes two columns (`minmax(0,1fr) 21rem`) at `52rem`, where the header grid moves from above-left at `min(13rem, 62vw)` to right-aligned at full column width; the mosaic goes from 2 columns to 4 at `40rem`; the scale band from 2 to 4 at `46rem`; the services calendar collapses from its seven day columns to a single stack below `46rem`, dropping the day header with it, since a one-column week is not a week; the timeline takes its sticky year, `9.5rem` column and `10.3rem` spine from `52rem` up, and below `32rem` drops the spine and markers and falls back to hairline separators in one column; the two interior nav links hide below `32rem`. Anchored sections carry `scroll-margin-top: 5.25rem` to clear the sticky masthead.
+Responsive behaviour is a handful of real breakpoints rather than a scale: the hero becomes two columns (`minmax(0,1fr) 21rem`) at `52rem`, where the portrait mount moves from above-left at `min(14rem, 64vw)` to right-aligned at the full 21rem column; the mosaic goes from 2 columns to 4 at `40rem`; the scale band from 2 to 4 at `46rem`; the services calendar collapses from its seven day columns to a single stack below `46rem`, dropping the day header with it, since a one-column week is not a week; the timeline takes its sticky year, `9.5rem` column and `10.3rem` spine from `52rem` up, and below `32rem` drops the spine and markers and falls back to hairline separators in one column; the two interior nav links hide below `32rem`. Anchored sections carry `scroll-margin-top: 5.25rem` to clear the sticky masthead.
 
 ### Named Rules
 **The One Left Edge Rule.** Content is capped by a max-width on the children of a full-width section, never by centring a narrower column inside a wider one. A centred 44rem column inside a 78rem page produces two competing left edges and reads as misalignment rather than composition.
@@ -334,20 +333,22 @@ The page is flat at rest, and now literally so: no element carries an at-rest at
 - **Field lift, light state** (`linear-gradient(155deg, rgba(0,0,0,.055), rgba(0,0,0,0) 58%)`): The same treatment inverted for the four light fields, at the same 155deg. Two states of one surface treatment, not two effects: a white gloss on a near-paper field is invisible, so the lift has to darken instead.
 
 ### Named Rules
-**The Flat-Until-Touched Rule.** Shadows are a response to state, not decoration. If an element cannot be hovered or pressed it carries no atmospheric shadow, and the system now has no exception: a surface that needs to separate from the page uses a hairline and a tonal step, as the calendar entries do.
+**The Flat-Until-Touched Rule.** Shadows are a response to state, not decoration. If an element cannot be hovered or pressed it carries no atmospheric shadow, and the system has no exception: a surface that needs to separate from the page uses a border and a tonal step, as the calendar entries do with a hairline and the hero mount does with its 2px frame. The mount is the test case — a framed panel was the alternative to giving it a shadow, and the frame won.
 
 **The Ink-Tinted Shadow Rule.** Shadows are tinted with `rgba(34,27,29,…)` (ink) or with the accent, never neutral black — except where the shadow falls on a saturated field rather than on paper.
 
 ## Shapes
 
-One radius does nearly all the work: **10px** on every interactive or tiled shape, meaning both buttons, all eleven account tiles and the six calendar entries. **6px** is the header grid's cell, a step tighter because nine small cells at 10px read as lozenges rather than a grid. Below that there are two micro radii in service roles: **5px** for the "Current" chip and the small proof thumbnail, and **2px** for the global focus ring. One `50%` circle exists — the 7px timeline marker. The scrollbar thumb is the only fully rounded shape in the build (`99px`), and it is browser chrome rather than page content. The 14px portrait frame is gone with the component that used it.
+One radius does the work: **10px** on every interactive, tiled or mounted shape, meaning both buttons, all eleven account tiles, the six calendar entries and the hero portrait mount. Below that there are two micro radii in service roles: **5px** for the "Current" chip and the small proof thumbnail, and **2px** for the global focus ring. One `50%` circle exists — the 7px timeline marker. The scrollbar thumb is the only fully rounded shape in the build (`99px`), and it is browser chrome rather than page content. Two radii left with the components that used them: the old 14px portrait frame, and the 6px header-grid cell — the build has no 6px radius any more.
 
-Borders are 1px and come in three kinds: a solid accent border on the primary button (the same colour as its fill, so hover can swap both at once), a `{colors.rule}` border on the ghost button darkening to ink on hover, and a `{colors.rule-soft}` border around each calendar entry, which is how those surfaces separate from the page without a shadow. Everything else that looks like a divider is a `border-top` hairline or a 1px absolutely-positioned spine, not a box.
+Borders come in two weights. The hairline is 1px, in three kinds: a solid accent border on the primary button (the same colour as its fill, so hover can swap both at once), a `{colors.rule}` border on the ghost button darkening to ink on hover, and a `{colors.rule-soft}` border around each calendar entry, which is how those surfaces separate from the page without a shadow. The second weight is a single **2px solid `{colors.ink}`** frame on the hero mount — deliberately visible, because the frame is what does the mount's separating. Everything else that looks like a divider is a `border-top` hairline or a 1px absolutely-positioned spine, not a box.
 
 The mosaic's geometry is deliberate: eleven tiles whose spans total 16 cells against a 4-column grid, so it tessellates exactly with no orphan row, under `grid-auto-flow: row dense`. Wide tiles use `grid-column: span 2`; the double-width set is Sotrue, Srivari, Montecarlo, The Indian Chai and SlayStay, which deliberately places one light field in a big cell (measured big-cell luminances 0.006, 0.036, 0.042, 0.443, 0.024) so the lightness range lands where the section carries its weight. Tiles are at least 9.5rem tall on phones and 10.5rem above 40rem, with their content bottom-aligned so a row of mixed tiles shares one baseline band.
 
 ### Named Rules
-**The Single Radius Rule.** 10px is the radius. A new interactive surface or tile uses 10px and does not introduce a new value. 6px belongs to the header grid cells, 5px to chip-scale objects, 2px to focus shapes, `50%` to the timeline marker.
+**The Single Radius Rule.** 10px is the radius. A new interactive, tiled or mounted surface uses 10px and does not introduce a new value. 5px belongs to chip-scale objects, 2px to focus shapes, `50%` to the timeline marker, and `99px` to the scrollbar thumb alone, as browser chrome.
+
+**The Contained Figure Rule.** A figure inside a framed mount stays inside the frame. The cutout ran at `width: 118%` with a `-9%` offset while the header had no visible edge, and that worked; once the mount carried a 2px frame, half of her on the mount and half on the paper read as a mistake rather than as a device. It now sits at `left: 0; width: 100%; bottom: 0` — 100% rather than 106% specifically so there is headroom above her hair. Break a frame only where there is no frame.
 
 **The No Pills Rule.** Nothing in the page content is fully rounded. Buttons, tiles and chips are squared-off rectangles with a soft corner.
 
@@ -385,8 +386,16 @@ The "Current" marker beside the newest employer. Accent-tinted background (`colo
 ### Masthead
 Sticky, 4rem tall, 86% paper with a 10px backdrop blur and a `@supports` fallback to solid paper. Its bottom border starts transparent and transitions to `{colors.rule}` only once a 1px sentinel at the top of the document scrolls out of view, so the rule is earned rather than permanent. Wordmark in the display face at 700; nav links in soft ink at `.9375rem` darkening to ink on hover, with "Connect" in ink at weight 500. The two interior links hide below 32rem.
 
-### Header Grid (signature component)
-The page opens on the thing she actually makes. A square `3×3` grid of account fields at `4px` gaps and 6px cells, with her cut out of her own photograph standing in front of it, breaking the frame rather than sitting inside it (`width: 118%`, `left: -9%`, `bottom: -5%`). Each of the nine cells cycles three of the eleven fields over `30s` linear infinite, staggered `-3.1s` per cell by index, so the grid is always mid-change and never in step. Each cell's base colour is its own first field, which is what keeps the grid reading as a range when the animation never runs; `prefers-reduced-motion` sets `animation: none` and leaves nine different colours standing. The grid is `aria-hidden`, the cutout is `pointer-events: none`, and `.portrait` is now only the positioning context — there is no frame, no backing, no shadow and no aspect-ratio image rule.
+### Framed Portrait Mount (signature component)
+One mounted panel where the cycling grid used to be. `.portrait` is a real component again: a square mount (`aspect-ratio: 1/1`) with `overflow: hidden`, the 10px radius, a deliberately visible `2px solid {colors.ink}` frame, filled with `{colors.portrait-field}`. Her cutout sits inside it at `left: 0; width: 100%; bottom: 0`, `pointer-events: none`, contained rather than breaking out. The mount is `min(14rem, 64vw)` wide and ordered above-left on phones (`order: -1; justify-self: start`), and from `52rem` up it takes `order: 0; justify-self: end` at the full `21rem` hero column.
+
+Four decisions here were corrections, and each is the reason for a value:
+- **The grid is gone.** Eleven shifting colours behind the headline did not look good, and the range already has a whole section of its own; the header was competing with it.
+- **The mount is mid-light, not dark.** Her hair is near-black, so a dark panel merged with it and lost her outline.
+- **The mount is not paper-coloured either.** Too close in value to the page to separate her from it.
+- **She is contained, not breaking the frame.** The previous treatment overflowed at 118% width, which only worked while there was no visible edge.
+
+It carries no shadow: the frame and the tonal step are the separation, so the Flat-Until-Touched Rule still has no exception.
 
 ### Services Calendar
 The daily calendar is the deliverable, so the section is laid out as one. A `Mon–Sun` header row in day-label type over a hairline, then the six services placed across seven columns as scheduled entries by start column and span: `(1,4) (5,3) (2,3) (5,3) (1,3) (4,4)`. That leaves one empty cell at row 2 column 1, which is what a real week looks like. Entries are card-paper surfaces with a `{colors.rule-soft}` hairline and the 10px radius, `1rem 1.05rem 1.1rem` padding, title at `{typography.list-title}` and description capped at 34ch. Below `46rem` the day header is hidden and every entry spans `1 / -1`.
@@ -402,9 +411,9 @@ It is CSS-only end to end, so it clears itself with the script removed (the scri
 Inline SVG only, authored in a single `<defs>` sprite at the top of the body and referenced with `<use>`. Every sprite entry is a `<symbol>` carrying `viewBox="0 0 20 20"`, never a `<g>`: a `<g>` cannot establish a viewport, so art drawn in 20 user units is clipped to the consuming element's pixel box. That exact defect shipped once — all eleven outbound arrows rendered with the arrowhead cut off at 11px. Every consuming `<svg>` is `aria-hidden="true"`. One stroke weight throughout (`1.6`, round caps and joins). Three glyphs exist: outbound arrow, mail, LinkedIn mark. 16px in buttons, 11px in tile metadata.
 
 ### Imagery
-Three rasters ship, all the client's own work, all out of the portfolio deck she supplied (`Priyal Banthia Portfolio (2).pdf`), extracted with pypdf and processed with PIL. The deploy set is `index.html` plus three assets, 375 KB.
+Three rasters ship, all the client's own work, all out of the portfolio deck she supplied (`Priyal Banthia Portfolio (2).pdf`), extracted with pypdf and processed with PIL. The deploy set is `index.html` plus three assets, 374 KB.
 
-- `assets/priyal-cutout.png` (330×274) is the header cutout. Its alpha matte came from rembg's `u2net_human_seg` on the same deck photograph, cropped to `y 124..398` because the matting could not separate the table and chair below that line; fringe was suppressed on the boundary ring only, since a whole-frame fringe pass caught her skin and fabric and erased her; and the bottom 70px is alpha-ramped so she dissolves into the paper rather than ending on a cut line.
+- `assets/priyal-cutout.png` (330×274) is the mount's cutout, now displayed at 100% of the mount's width rather than 106%, to leave headroom above her hair. Its alpha matte came from rembg's `u2net_human_seg` on the same deck photograph, cropped to `y 124..398` because the matting could not separate the table and chair below that line; fringe was suppressed on the boundary ring only, since a whole-frame fringe pass caught her skin and fabric and erased her; and the bottom 70px is alpha-ramped so she dissolves into the paper rather than ending on a cut line.
 - `assets/priyal-portrait.jpg` (389×519) is the unmodified extraction. It is retained and still referenced, but only as `og:image`: a transparent PNG makes a poor share card.
 - `assets/srivari-thumb.jpg` is a crop of the deck's before/after page at box `(20,60,500,600)`, LANCZOS-downscaled to 420×473 at quality 86, her own published before/after of the Srivari feed.
 
@@ -415,11 +424,11 @@ Three rasters ship, all the client's own work, all out of the portfolio deck she
 
 **The Can't-Desynchronise Rule.** A device that labels a row must not be able to drift from the row it names, which means CSS when CSS can do the job. The sticky year replaced a scripted pinned year that depended on an IntersectionObserver with no fallback and deduped by the year string, so the two 2025 roles made it name the wrong employer. `position: sticky` inside each row's own box cannot name anything but its own row.
 
-The mosaic reveal is the page's one in-content animated moment: tiles settle in from `translateY(16px)` and `opacity: 0`, staggered at `46ms` each over `.66s` with `cubic-bezier(.16, 1, .3, 1)`, once, on first view. Everything else in the page body that moves is hover or active feedback at `.18s`–`.26s` on that same easing, with two standing exceptions: the header grid's slow 30s colour cycle, and the loader. Both are documented above rather than generalised into a rule, and both are a divergence from the original one-moment intent.
+The mosaic reveal is the page's one in-content animated moment: tiles settle in from `translateY(16px)` and `opacity: 0`, staggered at `46ms` each over `.66s` with `cubic-bezier(.16, 1, .3, 1)`, once, on first view. Everything else in the page body that moves is hover or active feedback at `.18s`–`.26s` on that same easing, with one standing exception: the loader. It is documented above rather than generalised into a rule, and it is the one divergence left from the original one-moment intent — the header's 30s colour cycle, the other divergence, went with the grid.
 
 **The Never-Hidden Rule.** Tiles are visible in CSS by default and the script adds the pre-animation state, so with the script removed nothing is ever hidden — the no-JS page renders at the same height as the live one. The reveal class is dropped 1.5s after it fires so it can never replay, and a 2.5s failsafe timer releases it regardless of what the observer does, because the mosaic must never be able to sit at `opacity: 0`.
 
-**The Full Collapse Rule.** `prefers-reduced-motion: reduce` collapses every transition and animation to `.01ms`, removes the loader outright, stops the header grid's cycle with `animation: none` so it rests on nine different fields, forces the mosaic to its settled state, disables the tile hover lift and turns smooth scrolling off. The reveal is never even armed when reduced motion is set.
+**The Full Collapse Rule.** `prefers-reduced-motion: reduce` collapses every transition and animation to `.01ms`, removes the loader outright, forces the mosaic to its settled state, disables the tile hover lift and turns smooth scrolling off. The reveal is never even armed when reduced motion is set. With the cycling header gone there is nothing left in the build whose colour depends on an animation running.
 
 ## Do's and Don'ts
 
@@ -428,11 +437,10 @@ The mosaic reveal is the page's one in-content animated moment: tiles settle in 
 - **Do** let a block exceed the reading measure only when every text run inside it carries its own `ch` cap, and send it to the one 60rem secondary width.
 - **Do** check a candidate neutral channel by channel: blue at or above green, or it is not rose-warm. The shipped paper is `rgb(246,241,242)`.
 - **Do** keep the accent visible on the primary action; a palette whose one accent survives only in a badge is failing the One Accent Rule, not honouring it.
-- **Do** use 10px for any new interactive or tiled surface, and 6px for a small grid cell.
+- **Do** use 10px for any new interactive, tiled or mounted surface; the build has one radius.
 - **Do** derive secondary text on a coloured field with `color-mix(in oklab, var(--fg) N%, var(--field))`, with an `rgba()` fallback declared first, and expect a colour audit to flag the 22 computed results as drift. They are content, not palette.
 - **Do** separate runs of facts with 1px hairlines, a spine and markers, or a calendar grid, instead of wrapping them in cards.
-- **Do** give a surface that must separate from the page a hairline and a tonal step rather than an at-rest shadow.
-- **Do** give any set that cycles colours its own first value as its static base, so it still reads as a set with animation off.
+- **Do** give a surface that must separate from the page a border and a tonal step rather than an at-rest shadow — a 1px hairline as the calendar entries do, or the one 2px frame as the hero mount does.
 - **Do** prefer CSS for a device that labels or tracks a row; a scripted one can desynchronise from the row it names.
 - **Do** write two literal keyframe sets for two directions rather than parameterising one with a custom property.
 - **Do** tint shadows with ink (`rgba(34,27,29,…)`) or the accent, and keep atmospheric shadows tied to hover.
@@ -443,8 +451,9 @@ The mosaic reveal is the page's one in-content animated moment: tiles settle in 
 - **Do** author icons as inline SVG in the single `<defs>` sprite at stroke-width 1.6, as a `<symbol>` with an explicit `viewBox`, and mark every consuming `<svg>` `aria-hidden="true"`.
 - **Do** keep the page's own labels consistent with the counts it claims: the eleven tile categories resolve to the seven the scale band states.
 - **Do** keep raster provenance recorded, never display a raster above its native size, and keep unreferenced source images out of the upload.
-- **Do** keep every text colour at AA or better; the measured floor in this build is 4.98:1 on the lightest account tile.
+- **Do** keep every text colour at AA or better; the measured floor in this build is 5.0:1 on the lightest account tile.
 - **Do** make any full-screen or reveal state clear itself without JavaScript, with a timer as a backstop only.
+- **Do** let a figure inside a framed mount stay inside the frame, and give a surface that borrows a field's value its own token.
 
 ### Don't:
 - **Don't** add a dark theme, a `prefers-color-scheme` branch, or a theme toggle. The page is light-locked by decision.
@@ -454,12 +463,12 @@ The mosaic reveal is the page's one in-content animated moment: tiles settle in 
 - **Don't** treat the eleven `--field` colours as theme colours, or add one without an account behind it.
 - **Don't** fill the field set with eleven dark values of similar lightness; keep four light fields in the mix with the `.light` treatment, keep at least one of them in a double-width cell, and don't ship two fields that read as the same colour.
 - **Don't** use grey, or a blanket opacity, for secondary text on a coloured field, and don't replace a derived secondary with a literal to silence an audit.
-- **Don't** make anything in the page content fully rounded, and don't add a radius value beyond 2 / 5 / 6 / 10px and the one 7px circle.
+- **Don't** make anything in the page content fully rounded, and don't add a radius value beyond 2 / 5 / 10px, the one 7px circle and the scrollbar thumb.
 - **Don't** put an at-rest atmospheric shadow on anything; the build has none.
 - **Don't** put a `ch`-based cap on display type whose line count matters — the cap moves when the font does.
 - **Don't** draw ruled columns behind a grid of cards. They were built here as a `repeating-linear-gradient` for the calendar and removed: they sat mostly hidden behind the entries, earned nothing, and read as decorative stripes. The day header and the spans carry the calendar on their own.
-- **Don't** base a cycling set of colour cells on one shared field; with animation off the whole set collapses to a single colour.
 - **Don't** do custom-property arithmetic inside a keyframe transform.
 - **Don't** add another blocking entrance or hold-screen to a new surface, and don't let any reveal or overlay state persist where it could leave content at `opacity: 0`.
 - **Don't** use an uppercase letterspaced label as a kicker above a heading; that type role belongs inside tiles and chips only.
+- **Don't** put a slow colour cycle behind the headline, and don't let the header compete with the section that already carries the range.
 - **Don't** use emoji, an icon font, or an icon library in place of the authored sprite, and don't author a sprite entry as a `<g>` — it cannot establish a viewport and the art will clip.
