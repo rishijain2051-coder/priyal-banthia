@@ -220,16 +220,18 @@ Scroll mechanics: armed, a sticky stage pins one identity at a time while invisi
 
 ## Elevation & Depth
 
-Flat. Zero `box-shadow` in the file. Depth is atmosphere only: a fixed radial vignette over the page, film grain (overlay, .1 opacity) on the eleven coloured fields only, and a mask-faded wash of the live field behind the fixed name so text can pass under it. The wash is a scroll edge, never a divider.
+Flat. Zero `box-shadow` in the file. Depth is atmosphere only: a fixed radial vignette over the page whose opacity is handed over with the chrome (`--vig-o`, 0 on the four light fields), film grain (overlay, .1 opacity) on the eleven coloured fields only, and a mask-faded wash of the live field behind the fixed name so text can pass under it. The wash is a scroll edge, never a divider.
 
 ### Named Rules
 **The Grain Placement Rule.** Grain lives on `.id::after` only. Over the near-black frame, at the opacity it needed, it never reached the screen.
+
+**The Vignette Belongs to the Frame Rule.** The vignette is the black frame's atmosphere. Over a light account field it is a grey-brown smudge belonging to no account, which breaks Borrowed Colour, so `live()` sets `--vig-o: 0` for those palettes and the exit sentinel restores it.
 
 **The No-Shadow Rule.** No shadow, glow or elevation. Hairlines and full-bleed fields do the structural work.
 
 ## Shapes
 
-Square. No card, no radius. The single exception is the 50% action disc holding the diagonal arrow. Borders are 1px (hairline or currentColor); 2px under `prefers-contrast: more`. Plates (screenshots) are clipped rectangles, luminosity-blended at .62 opacity so they take the account's field. The portrait is greyscale, masked into the page, and bled off the right edge.
+Square. No card, no radius. The single exception is the 50% action disc holding the diagonal arrow. Borders are 1px (hairline or currentColor); 2px under `prefers-contrast: more`. Plates (screenshots) are clipped rectangles at .92 opacity in their own colour: they are the only evidence on the page and dimming them into the field dimmed the proof. Each is sized to its source aspect so `object-fit` never crops readable text. The portrait is greyscale and bleeds off all four edges, fading from the band where the small type sits.
 
 ## Components
 
@@ -239,7 +241,7 @@ Square. No card, no radius. The single exception is the 50% action disc holding 
 - **Disc:** 30px circle, 1px currentColor border, arrow nudges 3px up-right on hover.
 
 ### Identity action
-The account handle is the action, so it is built as one: 52px tall, 1px currentColor border in the account's `--fg`, 34px disc; hover inverts to `--fg` on `--field`. Self-aligns to the identity's layout (start, end, centre).
+The account handle is the action, so it is built as one: 52px tall, 1px currentColor border in the account's `--fg`, 34px disc; hover inverts to `--fg` on `--field`. Self-aligns to the identity's layout (start, end, centre). Set in the identity's own face, not the UI face. Four of the eleven (`data-act="rule"`) drop the border entirely and sit on a 1.5px rule instead, because the same enclosure eleven times reads as the card this world forbids.
 
 ### Fixed name
 Top, 11px tracked caps, pointer-inert except its two links. Colour from the observer; wash behind it fades by mask.
@@ -258,6 +260,10 @@ One easing: `cubic-bezier(.22,1,.36,1)`, for weight and never bounce. The identi
 
 ### Named Rules
 **The Cut Rule.** A change of identity is a cut. A crossfade between two full-bleed fields reads as a dissolve and was removed.
+
+**The Voice Owns the Identity Rule.** A voice is not a font on one heading. The index numeral and the handle are set in the identity's own face too. Setting the shared parts in one clinical face on all eleven is what makes eleven worlds read as one recoloured template. No two identities may share the same face, layout and action treatment; all eleven combinations are distinct.
+
+**The Reach Rule.** The cut is a visual state, never an existence one. Non-live identities are `opacity: 0; pointer-events: none` and stay in the tab order and the accessibility tree; `visibility: hidden` took ten of the eleven account links out of both. Focus entering an identity makes it live.
 
 **The Varied Entrance Rule.** Each voice has its own entrance. One entrance repeated eleven times is scattered motion.
 
