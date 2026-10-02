@@ -164,6 +164,7 @@ a{ color:inherit; text-underline-offset:.2em }
 }
 .boot-f{
   position:absolute; inset:0;
+  background:var(--field); color:var(--fg);
   display:grid; place-items:center;
   padding:var(--gut);
   opacity:0;
@@ -187,6 +188,7 @@ a{ color:inherit; text-underline-offset:.2em }
 .boot-f:nth-child(9) { animation-delay:1.00s }
 .boot-f:nth-child(10){ animation-delay:1.12s }
 .boot-f:nth-child(11){ animation-delay:1.24s }
+.boot-f.wide span{ font-size:var(--t-sub); letter-spacing:.2em }
 .boot-f.last{
   animation:boot-hold .30s linear 1.36s both;
   background:var(--void); color:var(--bone);
@@ -367,7 +369,7 @@ a{ color:inherit; text-underline-offset:.2em }
   mix-blend-mode:luminosity; opacity:.62; filter:contrast(1.06);
 }
 .id-plate.p-srivari{ top:0; right:-12%; width:60%; height:46% }
-.id-plate.p-sotrue { top:16%; right:-10%; width:72%; height:26% }
+.id-plate.p-sotrue { top:7.6rem; left:var(--gut); width:77%; aspect-ratio:494/248 }
 .id-no{
   position:absolute; top:4.6rem; left:var(--gut); z-index:2;
   display:flex; align-items:baseline; gap:var(--s-3);
@@ -381,7 +383,7 @@ a{ color:inherit; text-underline-offset:.2em }
 /* --- the three voices, at identity scale ---------------------------- */
 @media (min-width:48rem){
   .id-plate.p-srivari{ right:4%; width:26%; height:76%; top:12% }
-  .id-plate.p-sotrue { right:6%; width:34%; height:34%; bottom:12% }
+  .id-plate.p-sotrue { left:auto; top:auto; bottom:12%; right:6%; width:34%; aspect-ratio:494/248 }
 }
 .id[data-face="bodoni"] .id-name{
   font-family:"Bodoni Moda",ui-serif,Georgia,serif; font-optical-sizing:auto;
@@ -392,7 +394,7 @@ a{ color:inherit; text-underline-offset:.2em }
   font-weight:800; text-transform:uppercase;
   font-size:var(--t-id-loud); line-height:.82; letter-spacing:-.01em;
 }
-.id[data-face="geist"] .id-name{
+.id[data-face="grot"] .id-name{
   font-family:"Schibsted Grotesk",ui-sans-serif,system-ui,sans-serif;
   font-weight:400; font-size:var(--t-head); letter-spacing:-.03em;
 }
@@ -457,7 +459,7 @@ a{ color:inherit; text-underline-offset:.2em }
 .craft p{ margin:0; color:var(--smoke); max-width:42ch; font-size:var(--t-body)}
 
 /* ======================================================= the record ==*/
-.record{ padding:var(--s-12) var(--gut) }
+.record{ padding:var(--s-12) var(--gut); scroll-margin-top:var(--s-10) }
 .record h2{
   margin:0 0 var(--s-6);
   font-family:"Schibsted Grotesk",ui-sans-serif,system-ui,sans-serif;
@@ -482,6 +484,7 @@ a{ color:inherit; text-underline-offset:.2em }
 
 /* ======================================================== the close ==*/
 .close{
+  scroll-margin-top:var(--s-10);
   min-height:100svh; min-height:100vh;
   display:grid; grid-template-columns:minmax(0,1fr); align-content:center; gap:var(--s-7);
   padding:var(--s-12) var(--gut) calc(var(--s-11) + env(safe-area-inset-bottom));
@@ -572,17 +575,17 @@ footer{
 
 <!-- the page cannot decide what it is ------------------------------- -->
 <div class="boot" aria-hidden="true">
-  <div class="boot-f" style="background:#0E3D27;color:#F2F0EC"><span class="v-bodoni" style="font-weight:500">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#DED3EE;color:#07070A"><span class="v-loud" style="font-weight:800;text-transform:uppercase">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#111111;color:#F2F0EC"><span class="v-grot" style="font-weight:300">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#E4A64B;color:#07070A"><span class="v-loud" style="font-weight:700;text-transform:lowercase">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#2A1C6B;color:#F2F0EC"><span class="v-bodoni" style="font-weight:900">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#EFD6CE;color:#07070A"><span class="v-grot" style="font-weight:600;letter-spacing:.2em;text-transform:uppercase;font-size:1.1rem">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#7C2E13;color:#F2F0EC"><span class="v-bodoni" style="font-style:italic;font-weight:400">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#CBD8CE;color:#07070A"><span class="v-bodoni" style="font-weight:400">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#123E63;color:#F2F0EC"><span class="v-grot" style="font-weight:400;letter-spacing:.1em">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#4A1B3D;color:#F2F0EC"><span class="v-loud" style="font-weight:800;text-transform:uppercase">Priyal<br>Banthia</span></div>
-  <div class="boot-f" style="background:#313B41;color:#F2F0EC"><span class="v-grot" style="font-weight:700;text-transform:uppercase;letter-spacing:-.01em">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-srivari"><span class="v-bodoni" style="font-weight:500">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-crystalicious"><span class="v-loud" style="font-weight:800;text-transform:uppercase">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-sotrue"><span class="v-grot" style="font-weight:300">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-indianchai"><span class="v-loud" style="font-weight:700;text-transform:lowercase">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-slaystay"><span class="v-bodoni" style="font-weight:900">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-walkthetalk wide"><span class="v-grot" style="font-weight:600;text-transform:uppercase">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-numaani"><span class="v-bodoni" style="font-style:italic;font-weight:400">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-grandmercure"><span class="v-bodoni" style="font-weight:400">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-alibaug"><span class="v-grot" style="font-weight:400;letter-spacing:.1em">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-diamour"><span class="v-loud" style="font-weight:800;text-transform:uppercase">Priyal<br>Banthia</span></div>
+  <div class="boot-f f-mcl"><span class="v-grot" style="font-weight:700;text-transform:uppercase;letter-spacing:-.01em">Priyal<br>Banthia</span></div>
   <div class="boot-f last"><span class="v-bodoni" style="font-weight:500">Priyal<br>Banthia</span></div>
 </div>
 
@@ -797,7 +800,7 @@ footer{
   </section>
 
   <!-- the record -------------------------------------------------- -->
-  <section class="record">
+  <section class="record" id="record">
     <h2>Where it was learned</h2>
     <ol>
       <li>
@@ -900,9 +903,13 @@ footer{
   }, { rootMargin: "-50% 0px -50% 0px", threshold: 0 });
   trigs.forEach((t) => io.observe(t));
 
-  /* leaving the stage returns the fixed name to bone */
+  /* leaving the stage returns the fixed name to bone; re-entering hands it
+     straight back to whichever identity is live, so the name is never bone
+     over one of the light fields. */
   new IntersectionObserver(([e]) => {
-    if (!e.isIntersecting) chrome("#F2F0EC", "#07070A");
+    if (!e.isIntersecting) return chrome("#F2F0EC", "#07070A");
+    const i = ids.findIndex((n) => n.classList.contains("is-live"));
+    if (i >= 0) live(i);
   }, { threshold: 0 }).observe(switcher);
 
   /* failsafe: an identity must never be able to sit at opacity 0 */
