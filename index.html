@@ -77,14 +77,14 @@
    foreground that clears AA on it, and the secondary derived from both. */
 .f-srivari      { --field:#0E3D27; --fg:#F2F0EC; --fg-2:#A8C2B4 }
 .f-diamour      { --field:#4A1B3D; --fg:#F2F0EC; --fg-2:#C7A3BC }
-.f-crystalicious{ --field:#DED3EE; --fg:#120A1C; --fg-2:#4A3C5E }
+.f-crystalicious{ --field:#DED3EE; --fg:#120A1C; --fg-2:#4A3C5E; --vig:0 }
 .f-sotrue       { --field:#111111; --fg:#F2F0EC; --fg-2:#9B9B9B }
 .f-slaystay     { --field:#2A1C6B; --fg:#F2F0EC; --fg-2:#A9A0D8 }
 .f-numaani      { --field:#7C2E13; --fg:#F2F0EC; --fg-2:#EBC3AE }
-.f-walkthetalk  { --field:#EFD6CE; --fg:#1C100A; --fg-2:#5C443A }
+.f-walkthetalk  { --field:#EFD6CE; --fg:#1C100A; --fg-2:#5C443A; --vig:0 }
 .f-alibaug      { --field:#123E63; --fg:#F2F0EC; --fg-2:#9DBAD2 }
-.f-grandmercure { --field:#CBD8CE; --fg:#101611; --fg-2:#47544B }
-.f-indianchai   { --field:#E4A64B; --fg:#1B1206; --fg-2:#44300D }
+.f-grandmercure { --field:#CBD8CE; --fg:#101611; --fg-2:#47544B; --vig:0 }
+.f-indianchai   { --field:#E4A64B; --fg:#1B1206; --fg-2:#44300D; --vig:0 }
 .f-mcl          { --field:#313B41; --fg:#F2F0EC; --fg-2:#AEB7BD }
 
 *,*::before,*::after{ box-sizing:border-box }
@@ -119,7 +119,7 @@ a{ color:inherit; text-underline-offset:.2em }
    and removed, because at the opacity it needed over a near-black ground
    it never actually reached the screen. */
 .vig{ position:fixed; inset:0; pointer-events:none; z-index:var(--z-vig) }
-.vig{ background:radial-gradient(120% 85% at 50% 42%, transparent 48%, rgba(0,0,0,.55) 100%) }
+.vig{ background:radial-gradient(120% 85% at 50% 42%, transparent 48%, rgba(0,0,0,var(--vig-o,.55)) 100%) }
 
 /* ------------------------------------------------------ the name ----
    fixed, never changes, takes its colour from the live identity. this is
@@ -215,13 +215,13 @@ a{ color:inherit; text-underline-offset:.2em }
 .hook-fig{
   position:absolute; inset:0; z-index:0;
   pointer-events:none;
-  -webkit-mask-image:linear-gradient(to top, transparent 1%, rgba(0,0,0,.55) 26%, #000 62%);
-          mask-image:linear-gradient(to top, transparent 1%, rgba(0,0,0,.55) 26%, #000 62%);
+  -webkit-mask-image:linear-gradient(to top, transparent 26%, rgba(0,0,0,.55) 46%, #000 72%);
+          mask-image:linear-gradient(to top, transparent 26%, rgba(0,0,0,.55) 46%, #000 72%);
 }
 .hook-fig img{
-  position:absolute; right:-24%; bottom:0;
-  width:118%; height:88%;
-  object-fit:cover; object-position:56% 22%;
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:58% 20%;
   filter:grayscale(1) contrast(1.06) brightness(.82);
   opacity:.82;
   animation:fig-in 2.6s cubic-bezier(.2,.7,.2,1) 1.72s both,
@@ -309,16 +309,16 @@ a{ color:inherit; text-underline-offset:.2em }
 }
 .switch.armed .id{
   position:absolute; inset:0; height:auto;
-  opacity:0; visibility:hidden;      /* a cut: no opacity transition */
+  opacity:0; pointer-events:none;    /* a cut: no opacity transition */
 }
-.switch.armed .id.is-live{ opacity:1; visibility:visible }
+.switch.armed .id.is-live{ opacity:1; pointer-events:auto }
 .switch.armed .trigs{ display:block; margin-top:-100svh; pointer-events:none }
 .switch.armed .trig{ height:66svh; height:66vh }
 .switch.armed .trig:nth-child(1),
 .switch.armed .trig:nth-child(4) { height:110svh; height:110vh }
 .switch.armed .trig:nth-child(7) { height:82svh;  height:82vh }
 .switch.armed .trig:nth-child(10){ height:78svh;  height:78vh }
-.switch.armed .trig:nth-child(11){ height:92svh;  height:92vh }
+.switch.armed .trig:nth-child(11){ height:116svh; height:116vh }
 .id::after{
   content:""; position:absolute; inset:0; pointer-events:none;
   opacity:.1; mix-blend-mode:overlay;
@@ -366,7 +366,7 @@ a{ color:inherit; text-underline-offset:.2em }
 .id-plate{ position:absolute; pointer-events:none; overflow:hidden }
 .id-plate img{
   display:block; width:100%; height:100%; object-fit:cover;
-  mix-blend-mode:luminosity; opacity:.62; filter:contrast(1.06);
+  opacity:.92; filter:contrast(1.04) saturate(.96);
 }
 .id-plate.p-srivari{ top:0; right:-12%; width:60%; height:46% }
 .id-plate.p-sotrue { top:7.6rem; left:var(--gut); width:77%; aspect-ratio:494/248 }
@@ -383,6 +383,9 @@ a{ color:inherit; text-underline-offset:.2em }
 /* --- the three voices, at identity scale ---------------------------- */
 @media (min-width:48rem){
   .id-plate.p-srivari{ right:4%; width:26%; height:76%; top:12% }
+  /* an identity that carries a plate keeps its text out of the plate's
+     column. declared before the quiet layout so that one keeps its own. */
+  .id:has(.id-plate) .id-in{ max-width:66% }
   .id-plate.p-sotrue { left:auto; top:auto; bottom:12%; right:6%; width:34%; aspect-ratio:494/248 }
 }
 .id[data-face="bodoni"] .id-name{
@@ -397,6 +400,35 @@ a{ color:inherit; text-underline-offset:.2em }
 .id[data-face="grot"] .id-name{
   font-family:"Schibsted Grotesk",ui-sans-serif,system-ui,sans-serif;
   font-weight:400; font-size:var(--t-head); letter-spacing:-.03em;
+}
+
+/* --- the voice owns the whole identity, not only the name -----------
+   the index and the handle used to be set in one clinical face on all
+   eleven, which is what made eleven worlds read as one recoloured
+   template. each identity now counts and signs in its own voice. */
+.id[data-face="bodoni"] .id-no b{
+  font-family:"Bodoni Moda",ui-serif,Georgia,serif; font-optical-sizing:auto;
+  font-weight:500; font-size:var(--t-head); letter-spacing:-.02em;
+}
+.id[data-face="bodoni"] .id-no i{ font-style:italic; letter-spacing:.06em }
+.id[data-face="loud"] .id-no b{
+  font-family:"Big Shoulders Display",ui-sans-serif,sans-serif;
+  font-weight:800; font-size:var(--t-head); letter-spacing:-.01em;
+}
+.id[data-face="bodoni"] .id-act{
+  font-family:"Bodoni Moda",ui-serif,Georgia,serif; font-optical-sizing:auto;
+  font-weight:500; font-size:var(--t-sub); letter-spacing:0;
+}
+.id[data-face="loud"] .id-act{
+  font-family:"Big Shoulders Display",ui-sans-serif,sans-serif;
+  font-weight:700; text-transform:uppercase;
+  font-size:var(--t-title); letter-spacing:.01em;
+}
+/* and four of them are not enclosed at all: the handle is a ruled line,
+   because the world forbids a card and a box eleven times is a card. */
+.id[data-act="rule"] .id-act{
+  min-height:0; padding:var(--s-3) 0 var(--s-2); border:0;
+  border-bottom:1.5px solid currentColor;
 }
 
 /* --- the layouts: alignment is part of the identity ----------------- */
@@ -462,9 +494,9 @@ a{ color:inherit; text-underline-offset:.2em }
 .record{ padding:var(--s-12) var(--gut); scroll-margin-top:var(--s-10) }
 .record h2{
   margin:0 0 var(--s-6);
-  font-family:"Schibsted Grotesk",ui-sans-serif,system-ui,sans-serif;
-  font-size:var(--t-label); font-weight:500; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--smoke);
+  font-family:"Bodoni Moda",ui-serif,Georgia,serif; font-optical-sizing:auto;
+  font-weight:400; font-size:var(--t-head); line-height:1.05; letter-spacing:-.02em;
+  max-width:14ch; color:var(--bone);
 }
 .record ol{ list-style:none; margin:0; padding:0}
 .record li{
@@ -629,7 +661,7 @@ footer{
       </div>
       <div class="id-in">
         <h2 class="id-name">Srivari Fashion Jewellery</h2>
-        <p class="id-spec"><span>Jewellery</span><span>Emerald / Gold</span></p>
+        <p class="id-spec"><span>Jewellery</span></p>
         <p class="id-note">Feed rebuilt on one template</p>
         <a class="id-act" href="https://www.instagram.com/srivarifashionjewellery/" target="_blank" rel="noopener">@srivarifashionjewellery
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
@@ -637,11 +669,11 @@ footer{
       </div>
     </article>
 
-    <article class="id f-diamour" data-face="bodoni" data-lay="right">
+    <article class="id f-diamour" data-act="rule" data-face="bodoni" data-lay="right">
       <span class="id-no"><b>02</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">Diamour Jewellery</h2>
-        <p class="id-spec"><span>Jewellery</span><span>Plum</span></p>
+        <p class="id-spec"><span>Jewellery</span></p>
         <a class="id-act" href="https://www.instagram.com/diamourjewellery/" target="_blank" rel="noopener">@diamourjewellery
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
@@ -652,7 +684,7 @@ footer{
       <span class="id-no"><b>03</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">Crystalicious</h2>
-        <p class="id-spec"><span>Jewellery</span><span>Lilac</span></p>
+        <p class="id-spec"><span>Jewellery</span></p>
         <a class="id-act" href="https://www.instagram.com/crystalicious0059/" target="_blank" rel="noopener">@crystalicious0059
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
@@ -667,8 +699,8 @@ footer{
       </div>
       <div class="id-in">
         <h2 class="id-name">Sotrue</h2>
-        <p class="id-spec"><span>Skincare</span><span>Carbon</span></p>
-        <p class="id-note">22.5K following the account</p>
+        <p class="id-spec"><span>Skincare</span></p>
+        <p class="id-note">22.5K followers</p>
         <a class="id-act" href="https://www.instagram.com/sotrue.in/" target="_blank" rel="noopener">@sotrue.in
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
@@ -679,41 +711,41 @@ footer{
       <span class="id-no"><b>05</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">SlayStay</h2>
-        <p class="id-spec"><span>Fashion</span><span>Indigo</span></p>
-        <p class="id-note">12.3K following the account</p>
+        <p class="id-spec"><span>Fashion</span></p>
+        <p class="id-note">12.3K followers</p>
         <a class="id-act" href="https://www.instagram.com/slaystay.com_/" target="_blank" rel="noopener">@slaystay.com_
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
       </div>
     </article>
 
-    <article class="id f-numaani" data-face="bodoni" data-lay="left">
+    <article class="id f-numaani" data-act="rule" data-face="bodoni" data-lay="left">
       <span class="id-no"><b>06</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">Label Numaani</h2>
-        <p class="id-spec"><span>Fashion</span><span>Rust</span></p>
+        <p class="id-spec"><span>Fashion</span></p>
         <a class="id-act" href="https://www.instagram.com/labelnumaani/" target="_blank" rel="noopener">@labelnumaani
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
       </div>
     </article>
 
-    <article class="id f-walkthetalk" data-face="loud" data-lay="huge">
+    <article class="id f-walkthetalk" data-face="loud" data-lay="right">
       <span class="id-no"><b>07</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">Walk The Talk</h2>
-        <p class="id-spec"><span>Footwear</span><span>Blush</span></p>
+        <p class="id-spec"><span>Footwear</span></p>
         <a class="id-act" href="https://www.instagram.com/walkthetalk.studio/" target="_blank" rel="noopener">@walkthetalk.studio
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
       </div>
     </article>
 
-    <article class="id f-alibaug" data-face="grot" data-lay="centre">
+    <article class="id f-alibaug" data-act="rule" data-face="grot" data-lay="centre">
       <span class="id-no"><b>08</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">Alibaug Resorts</h2>
-        <p class="id-spec"><span>Hospitality</span><span>Deep Sea</span></p>
+        <p class="id-spec"><span>Hospitality</span></p>
         <a class="id-act" href="https://www.instagram.com/alibaugresorts.in/" target="_blank" rel="noopener">@alibaugresorts.in
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
@@ -724,18 +756,18 @@ footer{
       <span class="id-no"><b>09</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">Grand Mercure Ahmedabad</h2>
-        <p class="id-spec"><span>Hospitality</span><span>Sage</span></p>
+        <p class="id-spec"><span>Hospitality</span></p>
         <a class="id-act" href="https://www.instagram.com/grandmercure_ahmedabad/" target="_blank" rel="noopener">@grandmercure_ahmedabad
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
       </div>
     </article>
 
-    <article class="id f-indianchai" data-face="loud" data-lay="left">
+    <article class="id f-indianchai" data-act="rule" data-face="loud" data-lay="left">
       <span class="id-no"><b>10</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">The Indian Chai</h2>
-        <p class="id-spec"><span>Food &amp; drink</span><span>Amber</span></p>
+        <p class="id-spec"><span>Food &amp; drink</span></p>
         <a class="id-act" href="https://www.instagram.com/theindianchai/" target="_blank" rel="noopener">@theindianchai
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
@@ -746,7 +778,7 @@ footer{
       <span class="id-no"><b>11</b><i>/ 11</i></span>
       <div class="id-in">
         <h2 class="id-name">Montecarlo Limited</h2>
-        <p class="id-spec"><span>Heavy infrastructure</span><span>Slate</span></p>
+        <p class="id-spec"><span>Heavy infrastructure</span></p>
         <a class="id-act" href="https://www.instagram.com/mclindia/" target="_blank" rel="noopener">@mclindia
           <span class="dot"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 13 13 7M7.6 7H13v5.4"/></svg></span>
         </a>
@@ -770,7 +802,7 @@ footer{
 
   <!-- what it takes ----------------------------------------------- -->
   <section class="craft">
-    <h2>Eleven voices is not eleven styles. It is one discipline.</h2>
+    <h2>The styles are theirs. The discipline is mine.</h2>
     <ol>
       <li>
         <h3>Content management</h3>
@@ -880,16 +912,20 @@ footer{
   if (!reduced.matches) switcher.classList.add("armed");
 
   const root = document.documentElement.style;
-  const chrome = (fg, bg) => {
+  const chrome = (fg, bg, vig) => {
     root.setProperty("--chrome", fg);
     root.setProperty("--chrome-bg", bg || "#07070A");
+    /* the vignette is the room's atmosphere over the black frame; over a
+       light field it is just a grey smudge belonging to no account. */
+    root.setProperty("--vig-o", vig || ".55");
   };
 
   const live = (i) => {
     ids.forEach((n, k) => n.classList.toggle("is-live", k === i));
     const cs = getComputedStyle(ids[i]);
     chrome(cs.getPropertyValue("--fg").trim() || "#F2F0EC",
-           cs.getPropertyValue("--field").trim() || "#07070A");
+           cs.getPropertyValue("--field").trim() || "#07070A",
+           cs.getPropertyValue("--vig").trim());
   };
   live(0);
 
@@ -911,6 +947,15 @@ footer{
     const i = ids.findIndex((n) => n.classList.contains("is-live"));
     if (i >= 0) live(i);
   }, { threshold: 0 }).observe(switcher);
+
+  /* the cut is a visual state, not an existence one: every handle stays in
+     the tab order, and reaching one by keyboard brings its identity up
+     rather than leaving focus on something nobody can see. */
+  switcher.addEventListener("focusin", (e) => {
+    const node = e.target.closest(".id");
+    const i = ids.indexOf(node);
+    if (i >= 0 && !node.classList.contains("is-live")) live(i);
+  });
 
   /* failsafe: an identity must never be able to sit at opacity 0 */
   setTimeout(() => {
