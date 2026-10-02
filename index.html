@@ -474,6 +474,50 @@ a{ color:inherit; text-underline-offset:.2em }
 }
 .switch.armed .id.is-live .id-in > *{ opacity:1; transform:none; filter:none }
 
+/* --- the name survives the cut --------------------------------------
+   the field still cuts. what changes is that the brand name and its
+   handle are the same two objects all the way through: they travel
+   across the screen and re-set themselves from one voice into the next.
+   only the live identity carries a transition name, so the browser
+   always has exactly one old and one new to morph between. */
+@supports (view-transition-name: none){
+  .switch.armed .id.is-live .id-name{ view-transition-name:idname }
+  .switch.armed .id.is-live .id-act { view-transition-name:idhandle }
+
+  /* the root snapshot is not animated: the field arrives whole, on the
+     frame it was asked for. a cross-faded root is the dissolve this
+     world threw out. */
+  ::view-transition-old(root){ animation:none; opacity:0 }
+  ::view-transition-new(root){ animation:none; opacity:1 }
+
+  /* the travel is the effect, so the group owns the long curve. the
+     content swap is deliberately quick: cross-fading bone type against
+     near-black type is a double exposure, not a morph. the old leaves on
+     a blur, which is how everything on this page leaves. */
+  ::view-transition-group(idname),
+  ::view-transition-group(idhandle){
+    animation-duration:.52s;
+    animation-timing-function:cubic-bezier(.22,1,.36,1);  /* --ease; the
+      transition pseudo tree inherits from nothing that holds it */
+  }
+  ::view-transition-old(idname),
+  ::view-transition-old(idhandle){
+    animation:vt-leave .19s cubic-bezier(.4,0,1,1) both;
+  }
+  ::view-transition-new(idname),
+  ::view-transition-new(idhandle){
+    animation:vt-arrive .28s cubic-bezier(.22,1,.36,1) .13s both;
+  }
+}
+@keyframes vt-leave { to   { opacity:0; filter:blur(10px) } }
+@keyframes vt-arrive{ from { opacity:0 } }
+@supports (view-transition-name: none){
+  /* what carries over does not also arrive, because it never left. the
+     spec line and the note still enter in the identity's own voice. */
+  .switch.armed .id .id-name,
+  .switch.armed .id .id-act{ opacity:1; transform:none; filter:none }
+}
+
 /* ======================================================== the craft ==*/
 .craft{ padding:var(--s-13) var(--gut) var(--s-12) }
 .craft h2{
@@ -932,12 +976,29 @@ footer{
   };
   live(0);
 
+  /* one morph at a time. a cut arriving mid-morph abandons it and lands
+     whole, so a fast flick stays at frame rate instead of queueing eleven
+     snapshots, and a slow read gets the carry-over every time. */
+  const morphs = !reduced.matches &&
+                 typeof document.startViewTransition === "function";
+  let running = null;
+  const cut = (i) => {
+    if (i < 0) return;
+    if (!morphs) return live(i);
+    if (running) { running.skipTransition(); running = null; return live(i); }
+    running = document.startViewTransition(() => live(i));
+    /* a skipped morph is just a cut, so none of these is a fault */
+    running.ready.catch(() => {});
+    running.updateCallbackDone.catch(() => {});
+    running.finished.catch(() => {}).then(() => { running = null; });
+  };
+
   /* a trigger crossing the viewport's middle line is the cut. a band one
      pixel tall at 50% means exactly one trigger can ever be intersecting,
      so two identities can never both claim the stage. */
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      if (e.isIntersecting) live(trigs.indexOf(e.target));
+      if (e.isIntersecting) cut(trigs.indexOf(e.target));
     });
   }, { rootMargin: "-50% 0px -50% 0px", threshold: 0 });
   trigs.forEach((t) => io.observe(t));
@@ -953,11 +1014,17 @@ footer{
 
   /* the cut is a visual state, not an existence one: every handle stays in
      the tab order, and reaching one by keyboard brings its identity up
-     rather than leaving focus on something nobody can see. */
+     rather than leaving focus on something nobody can see. focus moves the
+     page rather than setting the state itself, because scroll position is
+     what decides which identity is live; setting both is how the two end up
+     disagreeing. */
   switcher.addEventListener("focusin", (e) => {
     const node = e.target.closest(".id");
     const i = ids.indexOf(node);
-    if (i >= 0 && !node.classList.contains("is-live")) live(i);
+    if (i < 0 || node.classList.contains("is-live")) return;
+    if (!switcher.classList.contains("armed") || !trigs[i]) return live(i);
+    const r = trigs[i].getBoundingClientRect();
+    scrollTo(0, scrollY + r.top + r.height / 2 - innerHeight / 2);
   });
 
   /* failsafe: an identity must never be able to sit at opacity 0 */

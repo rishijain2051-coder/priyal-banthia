@@ -256,7 +256,7 @@ Unnumbered list of Big Shoulders titles over smoke body, hairline between items.
 CSS end to end. Eleven identity flashes at .12s each, then a black settle and a lift (translateY -101%, .42s, `--ease`). Clears itself with scripts removed; script node removal is a backstop. Removed entirely under reduced motion.
 
 ### Motion
-One easing: `cubic-bezier(.22,1,.36,1)`, for weight and never bounce. The identity cut has no opacity transition. Arrival varies by voice: bodoni drifts (translateY 26px, blur 13px, .86s); loud snaps (scale 1.035, no blur, .3s); grot resolves (9px, blur 4px, .5s). The portrait is introduced: `fig-in` resolves it out of near-black over 2.6s after the loader lifts, then `fig-drift` alternates over 34s.
+One easing: `cubic-bezier(.22,1,.36,1)`, for weight and never bounce. The identity cut has no opacity transition, and the brand name and handle morph across it under The Carry-Over Rule. Arrival varies by voice: bodoni drifts (translateY 26px, blur 13px, .86s); loud snaps (scale 1.035, no blur, .3s); grot resolves (9px, blur 4px, .5s). The portrait is introduced: `fig-in` resolves it out of near-black over 2.6s after the loader lifts, then `fig-drift` alternates over 34s.
 
 ### Named Rules
 **The Cut Rule.** A change of identity is a cut. A crossfade between two full-bleed fields reads as a dissolve and was removed.
@@ -264,6 +264,10 @@ One easing: `cubic-bezier(.22,1,.36,1)`, for weight and never bounce. The identi
 **The Voice Owns the Identity Rule.** A voice is not a font on one heading. The index numeral and the handle are set in the identity's own face too. Setting the shared parts in one clinical face on all eleven is what makes eleven worlds read as one recoloured template. No two identities may share the same face, layout and action treatment; all eleven combinations are distinct.
 
 **The Reach Rule.** The cut is a visual state, never an existence one. Non-live identities are `opacity: 0; pointer-events: none` and stay in the tab order and the accessibility tree; `visibility: hidden` took ten of the eleven account links out of both. Focus entering an identity makes it live.
+
+**The Carry-Over Rule.** The field cuts; the name and the handle do not. They are the same two objects across the whole stage, carrying `view-transition-name` only while their identity is live, so the browser always has exactly one old and one new to morph between and never a duplicate. The group owns the long curve (.52s on `--ease`); the content swap is deliberately short, the old leaving on a blur in .19s and the new arriving over .28s after a .13s hold, because cross-fading bone type against near-black type is a double exposure rather than a morph. The root snapshot is not animated at all, so the field still arrives whole. One morph at a time: a cut arriving mid-morph abandons it and lands whole, which keeps a fast flick at frame rate. A browser without the View Transitions API gets the cut on its own, unchanged. What carries over does not also re-enter, so only the spec line and the note still arrive in the identity's voice.
+
+**The One Source of Truth Rule.** Scroll position decides which identity is live. Focus therefore moves the page — it scrolls the focused identity's own trigger to the centre line — instead of setting `is-live` itself. Setting both is how the two disagreed: focusing a handle scrolled it into view, the observer then fired for whichever trigger was on the centre line, and overwrote the focus.
 
 **The Varied Entrance Rule.** Each voice has its own entrance. One entrance repeated eleven times is scattered motion.
 
