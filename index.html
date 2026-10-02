@@ -984,13 +984,21 @@ footer{
   let running = null;
   const cut = (i) => {
     if (i < 0) return;
-    if (!morphs) return live(i);
+    /* a hidden document cannot start a transition: it aborts, and the state
+       change inside the callback goes down with it. nobody can see a morph
+       on a hidden page anyway, so the cut is applied on its own. */
+    if (!morphs || document.hidden) return live(i);
     if (running) { running.skipTransition(); running = null; return live(i); }
-    running = document.startViewTransition(() => live(i));
-    /* a skipped morph is just a cut, so none of these is a fault */
-    running.ready.catch(() => {});
-    running.updateCallbackDone.catch(() => {});
-    running.finished.catch(() => {}).then(() => { running = null; });
+    try {
+      running = document.startViewTransition(() => live(i));
+      /* a skipped morph is just a cut, so none of these is a fault */
+      running.ready.catch(() => {});
+      running.updateCallbackDone.catch(() => {});
+      running.finished.catch(() => {}).then(() => { running = null; });
+    } catch (e) {
+      running = null;
+      live(i);            /* the morph is the luxury; the cut is not */
+    }
   };
 
   /* a trigger crossing the viewport's middle line is the cut. a band one
