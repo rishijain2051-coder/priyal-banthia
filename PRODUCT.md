@@ -23,6 +23,10 @@ Two confirmed audiences, given equal weight by the user's answer ("Both"):
 
 Both audiences land on one page. Neither should have to scroll past the other's content to find their own.
 
+**About 95% of visitors are on a phone**, per the user. The phone is the primary viewport and the desktop is
+secondary; a design that only resolves on a wide screen has failed its actual audience. Visitors arrive from a
+LinkedIn profile, an Instagram bio link or a message thread.
+
 ## Product Purpose
 
 A single public page that proves Priyal can run a brand's social presence, and makes starting a conversation with her
@@ -31,8 +35,9 @@ which buries the strongest evidence (the real accounts) behind six pages of miss
 
 ## Positioning
 
-She reports having worked with 25+ clients. Eleven of those are named, publicly verifiable brand accounts across
-seven categories,
+She specialises in **D2C fashion and lifestyle**, which is where the bulk of her roster sits and how she introduces
+herself. She reports having worked with 25+ clients. Eleven of those are named, publicly verifiable brand accounts
+across seven categories,
 and she has since moved up from executing social media into coordinating D2C performance marketing accounts. The
 combination a neighbouring freelancer cannot truthfully copy: MICA training, a real multi-category brand roster with
 live links, and operational project-management experience on paid D2C accounts rather than organic posting alone.
@@ -46,6 +51,8 @@ role.
 
 ## Capabilities and Constraints
 
+- Scope of work, in her own words: **content management, designing and editing**. These are the three deliverables a
+  client is buying; the page names them rather than paraphrasing them.
 - Confirmed skills: Social Media Marketing, Digital Marketing, Marketing Strategy, Content Strategy, Meta Ads,
   Advertising, Content Marketing, Teamwork. Services she offers are listed publicly on LinkedIn.
 - **Hard constraint: compensation must never appear on any surface.** The Pixel Shark offer letter contains a
@@ -83,7 +90,7 @@ Real, in `assets/`, extracted from her own PDF deck:
 
 Verifiable facts: 11 named brand accounts with live Instagram links, out of the 25+ clients she reports;
 employers Pixel Shark, Onavid, Digital Friend,
-Trunk Media, creativcells, Mylstone Digital Services; MICA; Sotrue 22.5K/674; her LinkedIn 3,186 followers.
+creativcells, Mylstone Digital Services; MICA; Sotrue 22.5K/674; her LinkedIn 3,186 followers.
 
 The 25+ figure is her own count and is published as such; the fourteen-plus unnamed ones are not listed because no
 public account was supplied for them, so the page states the total and shows the eleven it can evidence.
