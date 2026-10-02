@@ -1,12 +1,10 @@
 # regenerable review captures (large PNGs, re-shot by the capture step)
 .impeccable/review/
 
-# scratch
-.tmp-logos/
-nojs-test.html
-.vercel/
-node_modules/
-.tmp-pip/
+# transient decision-page server logs
+.impeccable/questions/
 
+# vercel link + env
 .vercel
+.vercel/
 .env*

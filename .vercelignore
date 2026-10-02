@@ -6,8 +6,3 @@ assets/_source/
 .claude/
 PRODUCT.md
 DESIGN.md
-
-# local test renders
-nojs-test.html
-boot-test.html
-shim*.html
